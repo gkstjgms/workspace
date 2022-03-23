@@ -1,6 +1,6 @@
 import React from 'react';
 
-const User = React.memo(function User({ user, onRemove, onToggle }) {
+const User = ({ user, onRemove, onToggle }) {
   return (
     <div>
       <b
@@ -34,4 +34,4 @@ function UserList({ users, onRemove, onToggle }) {
   );
 }
 
-export default React.memo(UserList);
+export default UserList;
