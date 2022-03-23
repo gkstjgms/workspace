@@ -1,0 +1,136 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(68, 168, 250);
+    text-align: center;
+}
+
+#app {
+    padding: 50px;
+    color: white;
+}
+
+section {
+    color: white;
+}
+
+.login-section {
+    justify-content: center;
+    height: 550px;
+    width: 300px;
+    background-color: whitesmoke;
+    padding: 80px;
+    border-radius: 10px;
+}
+
+.dashboard-section {
+    justify-content: center;
+    width: 300px;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+}
+
+
+#description {
+    color: rgb(68, 168, 250);
+}
+
+.app {
+    margin-top: 100px;
+    color: white;
+    font-weight: bold;
+}
+
+h1 {
+    margin: 50px 0px;
+    color: white;
+    font-weight: bold;
+}
+
+h2 {
+    color: rgb(68, 168, 250);
+    font-weight: bold;
+}
+
+label, #label {
+    font-size: 13px;
+    color: rgb(4, 0, 61);
+}
+
+input {
+    height: 25px;
+    width: 292px;
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+button {
+    height: 25px;
+    width: 300px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(68, 168, 250);
+    color: white;
+    font-weight: bold;
+}
+
+#logoutbt {
+    width: 100px;
+    background-color: white;
+    color: rgb(68, 168, 250);
+}
+
+table {
+    width: 300px;
+    table-layout: fixed;
+}
+tr, th {
+    border-radius: 5px;
+    text-align: center;
+}
+th {
+    background-color: rgb(68, 168, 250);
+    color: white;
+}
+td {
+    background-color: white;
+}
+
+.line {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.35);
+    font-size: 15px;
+    margin: 10px 0px;
+}
+
+.line::before {
+    content: "";
+    flex-grow: 1;
+    margin: 0px 5px;
+    background: rgba(0, 0, 0, 0.35);
+    height: 1px;
+    font-size: 0px;
+    line-height: 0px;
+}
+
+.line::after {
+    content: "";
+    flex-grow: 1;
+    margin: 0px 5px;
+    background: rgba(0, 0, 0, 0.35);
+    height: 1px;
+    font-size: 0px;
+    line-height: 0px;
+}
+
+#loginError {
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+}

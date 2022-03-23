@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+    <title>Bank App</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <div id="app">Loading . . .</div>
+    <template id="login">
+        <h1>Banking</h1>
+        <section class="login-section">
+            <h2>《 LOGIN 》</h2>
+            <form id="loginForm" action="javascript:login()">
+                <label for="user">USERNAME</label><br>
+                <input name="user" type="text"><br>
+                <div id="loginError"></div>
+                <button>LOGIN</button>
+            </form><br>
+            <div class="line">
+                OR
+            </div>
+            <h2>《 REGISTER 》</h2>
+            <form id="registerForm" action="javascript:register()">
+                <label for="user">USERNAME</label><br>
+                <input name="user" type="text" maxlength="20" required><br>
+                <label for="currency">CURRENCY</label><br>
+                <input name="currency" type="text" value="$" maxlength="5" required><br>
+                <label for="description">DISCRIPTION</label><br>
+                <input name="description" type="text" maxlength="100"><br>
+                <label for="balance">CURRENT BALANCE</label><br>
+                <input name="balance" type="number" value="0"><br>
+                <button>REGISTER</button>
+            </form>
+        </section>
+    </template>
+    <template id="dashboard">
+        <header>
+            <h1>Banking</h1>
+            <button id="logoutbt" onclick="location.href='/login'">Logout</a>
+        </header>
+        <br>
+        <section class="dashboard-section">
+            <h2><section id="description" aria-label="Account description"></section></h2>
+            <div class="line">*</div>
+            Balance: <span id="balance"></span><span id="currency"></span>
+        </section>
+        <br>
+        <section class="dashboard-section">
+            <h2>Transactions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Object</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="transactions"></tbody>
+            </table>
+        </section>
+    </template>
+    <template id="transaction">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+    </template>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+body {
+    /* background (background-repeat default: repeat) */
+    background-origin: border-box;
+    background-image: url('/img/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    /* 페이지 여백 */
+    margin: 50px 100px;
+}
+
+section {
+    background-color: white;
+}
+
+#start {
+    color: white; 
+    background-color:darksalmon; 
+    border: 1px solid black;
+    text-align: center;
+}
+
+/* link style */
+a:link {
+    color:cornflowerblue;
+    text-decoration: none;
+}
+a:visited {
+    color:gray;
+    text-decoration: none;
+}
+a:hover {
+    color:crimson;
+}
+a:active { /* 무슨 용도지? */
+    color:firebrick;
+}
+
+iframe {
+    border: 3px solid darkolivegreen;
+    width: 100%;
+    height: 100%;
+}
+
+/* butten style */
+button {
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    margin-left: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+ul {
+    list-style-type: circle;
+}
+
+#list {
+    display: block;
+}
+
+.bookmark {
+    float: right;
+}
+
+#css-test {
+    color: blueviolet;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 200%;
+}
+
+#css-border {
+    border: 1px solid powderblue;
+    padding: 20px; /* text와 border 사이의 간격 */
+    margin: 50px; /* border 바깥의 space */
+}
+
+/* 글상자 */
+div {
+    border: 1px solid black;
+}
+
+/* 예의바른 고양이 이미지 */
+#cat {
+    width: 150px;
+    height: 200px;
+}
+
+/* 표 */
+table, th, td {
+    border: 1px solid black;
+    /* border-collapse: collapse;
+    table 삭제 시 외부 틀 삭제 가능*/
+    text-align: center;
+}
+table {
+    width: 400px;
+    height: 150px;
+    table-layout: fixed; /* 일정한 크기의 칸*/
+}
+th, td{
+    border-radius: 10px;
+    border-style: dashed;
+    border-color: gray;
+    background-color: white;
+}
+th {
+    background-color: aliceblue;
+}

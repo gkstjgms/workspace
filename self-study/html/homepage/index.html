@@ -1,0 +1,147 @@
+<!--주석-->
+<!--폴더 open 위치에 따라 파일들 주소가 달라지니 조심-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title> <!--페이지 탭 제목-->
+        <link rel="icon" type="./image/png" sizes="16x16" href="img/favicon-32x32.png"> <!--탭 아이콘 설정-->
+        <link rel="stylesheet" href="style.css">  <!--CSS 파일 연결-->
+        <script src="./script.js" defer></script> <!--JS 파일 연결-->
+        <meta charset="UTF-8"> <!--used character set-->
+        <meta name="author" content="SH Han"> <!--페이지 제작자-->
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!--페이지 크기 최적화-->
+    </head>
+
+    <body>
+        <section>
+            <h1 id="start">My Page &#128512;</h1>
+            <a href="#end" class="bookmark">Go to the end of this page. ▼</a>
+            <br><br><hr><br>
+            <h3>* Links with CSS styled</h3>
+            <a href="https://www.w3schools.com/html/" title="Go to W3Schools HTML section" target="_blank">HTML 튜토리얼 링크</a><br>
+            <a href="mailto:gkstjgms34@semi-ts.com">mailto:email@address.com - Sending email</a><br><br>
+            <iframe src="/index.html" title="iframe example"></iframe><br>
+            <!--
+                *** target=
+                _self: 현재 프레임
+                _blank: 새로운 탭
+                _parent: 현재 문서가 frame/iframe에 로드된 경우 현재 문서를 로드한 프레임에 문서를 로드     
+                _top: Opens the document in the full body of the window <- _self와 뭐가 다른 것?
+                프레임 name
+            -->
+            <br> <!--줄바꿈-->
+            <hr> <!--구분선-->
+            <!--header-->
+            <h1>Header 1</h1>
+            <h2>Header 2</h2>
+            <h3>Header 3</h3>
+            <h4>Header 4</h4>
+            <h5>Header 5</h5>
+            <h6>Header 6</h6>
+            <hr> 
+            <p>이것은 문단입니다.</p>
+            <p title="툴팁">title을 넣으면 툴팁이 뜹니다.</p>
+            <pre>
+                이것은 Enter만으로
+                줄글 사용이 가능합니다.
+                이것은 <mark>하이라이트</mark> 입니다.
+            </pre>
+            <p style="color:blue">Blue 글씨</p>
+            <p>보통 글씨 <b>굵은 글씨</b> <i>이탤릭체 글씨</i> <del>취소선</del> <ins>밑줄</ins></p>
+            <p><sub>아랫글자</sub>와 <sup>윗글자</sup>도 가능합니다.</p>
+            <p><small>이것은 작은 글씨체 입니다.</small></p>
+            <div>&nbsp;block입니다. style을 설정해야 보입니다.</div> <!--&nbsp; 공백-->
+            <p>span으로 문단의 <span style="color:blue">일부 디자인</span>을 <span style="border: 1px solid black;">이렇게</span> 바꿀 수 있습니다.</p>
+            <hr> 
+            <p>인용문 태그는 blockquote입니다. 줄바꾸기는 되지 않습니다.</p>
+            <blockquote cite="http://www.worldwildlife.org/who/index.html">
+                For 50 years, WWF has been protecting the future of nature.
+                The world's leading conservation organization, <br>
+                WWF works in 100 countries and is supported by
+                1.2 million members in the United States and
+                close to 5 million globally.
+            </blockquote>
+            <p>따옴표 인용은 <q>q 태그를 통해 가능합니다.</q></p>
+            <p>약어 사용은 <abbr title="HyperText Markup Language">HTML</abbr>의 abbr 태그로 가능합니다.</p>
+            <address>
+                글쓴이에 대한 정보는 address로 표시합니다.
+            </address>
+            <p><cite>The Scream</cite>과 같은 창작물의 제목은 cite를 이용하여 표시합니다. (그냥 이탤릭체 글씨 쓰면 안 되는 건가?)</p>
+            <bdo dir="rtl">거꾸로거꾸로</bdo>
+            <br><br><hr> 
+            <h4>* 리스트는 메뉴로 사용이 가능합니다.</h4>
+            <button id="listbutton" onclick="onclickbutton()">Hide list ▼</button>
+            <ul id="list"> <!--1개 이상이 안 된다... class도 동작이 안 된다... 아직은 역부족인가-->
+                <li>순서가</li>
+                <li>없는</li>
+                <li>리스트</li>
+            </ul>
+            <ol>
+                <li>순서가</li>
+                <li>있는</li>
+                <li>리스트</li>
+            </ol>
+            <dl>
+                <dt>리스트</dt>
+                <dd>- 설명 부분</dd>
+            </dl>
+            <hr>
+            <p id="css-test">This is CSS test script. color, font-family, font-size 적용.</p>
+            <p id="css-border">border test. border, padding, margin 적용.</p>
+            <hr>
+            <p>&lt;img src="이미지가 위치하는 URL" alt="대체 텍스트" width="폭" height="높이" longdesc="이미지와 관련된 링크"&gt;</p>
+            <p>link 태그 사이에 img 태그를 끼우면 Image as a link가 됩니다.</p>
+            <a id="cat" href="https://www.dogdrip.net/177953010" target="_blank"><img src="/img/image.jpg" alt="예의바른 고양이"/></a><br>
+            <!--
+                alt: 이미지가 로딩 되기 전이거나 이미지를 로딩할 수 없는 경우 텍스트가 표시된다.
+            -->
+            <p>image map을 통해 clickable areas 지정이 가능합니다.</p>
+            <img src="/img/workplace.jpg" alt="Workplace" usemap="#workmap">
+            <map name="workmap">
+                <area shape="rect" coords="34,44,270,350" alt="Computer" href="https://www.w3schools.com/html/computer.htm">
+                <area shape="rect" coords="290,172,333,250" alt="Phone" href="https://www.w3schools.com/html/phone.htm">
+                <area shape="circle" coords="337,300,44" alt="Coffee" href="https://www.w3schools.com/html/coffee.htm">
+            </map><br>
+            <!--
+                *** Area shape
+                rect : 사각형
+                circle : 원형
+                poly : 다각형
+                default : 전체 region 
+            -->
+            <!-- 
+                *** escaping
+                &lt; &gt; : < >
+                &amp; : &
+                &quot; : "
+                &apos; : '
+            -->
+            <br><br><hr><br>
+            <table>
+                <tr> 
+                   <th>&lt;th&gt;</th><th>제목</th><th>-</th><th>-</th>
+                </tr>
+                <tr>
+                   <td>&lt;tr&gt; 열</td><td>&lt;td&gt; 행</td><td>-</td><td>-</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">rowspan<br/>= 열 병합</td><td colspan="3">colspan = 행 병합</td>
+                 </tr>
+                 <tr>
+                    <td>-</td><td>-</td><td>-</td>
+                 </tr>
+            </table>
+            <br><hr><br>
+            <form>
+                <label for="fname">First name:</label><br>
+                <input type="text" id="fname" name="fname"><br>
+                <label for="lname">Last name:</label><br>
+                <input type="text" id="lname" name="lname">
+            </form>
+            <br><hr><br>
+            <h4 id="end">END.</h4>
+            <a href="#start" class="bookmark">Go to the start of this page. ▲</a>
+        </section>
+    </body>
+</html> 

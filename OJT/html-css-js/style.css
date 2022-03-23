@@ -1,0 +1,170 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #1e1e1e;
+    text-align: center;
+    color: white;
+    cursor: none;
+}
+
+/* bottom 여백 */
+div.last_div {
+    padding-bottom: 300px;
+}
+
+
+/* text_color*/
+span.text_skyblue {
+    color: lightblue;
+}
+span.text_yellow {
+    color: gold;
+}
+span.text_orange {
+    color: lightsalmon;
+}
+span.text_gray {
+    color: gray;
+}
+span.text_blue {
+    color: dodgerblue;
+}
+
+/* mouse cursor */
+.cursor {
+    border: 20px solid white;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1000;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: all 0.3 ease;
+    transition-property: transform;
+    backdrop-filter: sepia(20%);
+    background-size: cover;
+    mix-blend-mode: difference;
+}
+.cursor-grow {
+    transform: scale(-2);
+}
+
+/* menu */
+.menu {
+    list-style: square;
+    top: 150px;
+    position: fixed;
+    text-align: left;
+    z-index: 800;
+}
+.menu_select {
+    margin-top: 3px;
+    color: white;
+    text-decoration-line: none;
+    font-family: 'Courier Prime', monospace;
+}
+
+/* blink effect */
+@keyframes blink-effect {
+    50% {
+        opacity: 0;
+    }
+}
+#blink {
+    animation: blink-effect 2s step-end infinite;
+}
+
+/* title */
+section.title {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 100px;
+}
+p.title_title {
+    font-size: 50px;
+    font-family: 'Courier Prime', monospace;
+}
+img.title_logo {
+    width: 45px;
+}
+
+/* information */
+section.information {
+    position: relative;
+    display: block;
+    justify-content: center;
+    top: 200px;
+    clear: both;
+    margin: 50px 100px;
+}
+p.info_title {
+    margin-top: 100px;
+    font-size: 25px;
+    font-family: 'Courier Prime', monospace;
+}
+p.info_content {
+    font-family: 'Nanum Myeongjo', serif;
+    line-height: 170%;
+}
+b.info_content_chinese {
+    font-family: 'Noto Serif TC', serif;
+}
+
+/* text setting */
+div.textbox {
+    border: 1px solid white;
+    border-style: dashed;
+    margin: 0 400px;
+}
+div.project-text{
+    border: 1px solid white;
+    width: 600px;
+    height: 225px;
+    margin: 30px 50px;
+}
+p.text_content {
+    margin: 50px 50px;
+    font-family: 'Nanum Myeongjo', serif;
+    line-height: 170%;
+}
+p#text-project{
+    margin: 0 0 30px;
+}
+
+/* project */
+.project_div_1 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.project_div_2 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.project_title {
+    margin: 50px 50px 0;
+    justify-content: center;
+    font-size: 20px;
+    font-family: 'Courier Prime', monospace;
+}
+
+.project_img {
+    width: 600px;
+    border-radius: 10px;
+}
+
+#project_img2 {
+    margin: 100px 0;
+}
+
+#project_img4-1, #project_img4-2 {
+    width: 300px;
+    margin: 0px 0px;
+    border-radius: 10px;
+}
