@@ -1,6 +1,6 @@
 import React from 'react';
 
-const User = ({ user, onRemove, onToggle }) {
+function User({ user, onRemove, onToggle }) {
   return (
     <div>
       <b
@@ -17,7 +17,7 @@ const User = ({ user, onRemove, onToggle }) {
       <button onClick={() => onRemove(user.id)}>삭제</button>
     </div>
   );
-});
+};
 
 function UserList({ users, onRemove, onToggle }) {
   return (
