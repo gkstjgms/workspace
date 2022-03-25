@@ -1,23 +1,44 @@
 import React, { Component } from "react";
 
-class UserList extends Component {
+class User extends Component {
   render() {
     const { user, onRemove, onToggle } = this.props;
+
     return (
       <div>
         <b
           style={{
             cursor: "pointer",
+            color: user.active ? "green" : "black",
           }}
-          onClick={onToggle}
+          onClick={() => onToggle(user.id)}
         >
-          username
+          {user.username}
         </b>
         &nbsp;
-        <span>useremail</span>
+        <span>({user.email})</span>
         &nbsp;
-        <button onClick={onRemove}>삭제</button>
-      </div> 
+        <button onClick={() => onRemove(user.id)}>삭제</button>
+      </div>
+    );
+  }
+}
+
+class UserList extends Component {
+  render() {
+    const { users, onRemove, onToggle } = this.props;
+
+    return (
+      <div>
+        {users.map((user) => (
+          <User
+            user={user}
+            key={user.id}
+            onRemove={onRemove}
+            onToggle={onToggle}
+          />
+        ))}
+      </div>
     );
   }
 }
