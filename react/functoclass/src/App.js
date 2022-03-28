@@ -1,87 +1,109 @@
-import React, { useRef, useState, useMemo } from 'react';
-import UserList from './UserList';
-import CreateUser from './CreateUser';
+import React, { Component } from "react";
+import UserList from "./UserList";
+import CreateUser from "./CreateUser";
 
-function countActiveUsers(users) {
-  console.log('활성 사용자 수를 세는중...');
-  return users.filter(user => user.active).length;
-}
+const countActiveUsers = (users) => {
+  console.log("활성 사용자 수를 세는중...");
+  return users.filter((user) => user.active).length;
+};
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputs: {
+        username: "",
+        email: "",
+      },
+      users: [
+        {
+          id: 1,
+          username: "velopert",
+          email: "public.velopert@gmail.com",
+          active: true,
+        },
+        {
+          id: 2,
+          username: "tester",
+          email: "tester@example.com",
+          active: false,
+        },
+        {
+          id: 3,
+          username: "liz",
+          email: "liz@example.com",
+          active: false,
+        },
+      ],
+    };
+  }
 
-function App() {
-  const [inputs, setInputs] = useState({
-    username: '',
-    email: ''
-  });
-  const { username, email } = inputs;
-  const onChange = e => {
+  handleChange = (e) => {
     const { name, value } = e.target;
-    setInputs({
-      ...inputs,
-      [name]: value
+
+    this.setState({
+      [name]: value,
     });
   };
-  const [users, setUsers] = useState([
-    {
-      id: 1,
-      username: 'velopert',
-      email: 'public.velopert@gmail.com',
-      active: true
-    },
-    {
-      id: 2,
-      username: 'tester',
-      email: 'tester@example.com',
-      active: false
-    },
-    {
-      id: 3,
-      username: 'liz',
-      email: 'liz@example.com',
-      active: false
-    }
-  ]);
 
-  const nextId = useRef(4);
-  const onCreate = () => {
+  id = 4;
+  handleCreate = () => {
+    const { username, email, users } = this.state;
+
     const user = {
-      id: nextId.current,
+      id: this.id,
       username,
-      email
+      email,
     };
-    setUsers(users.concat(user));
 
-    setInputs({
+    this.setState({
+      users: users.concat(user),
       username: '',
       email: ''
     });
-    nextId.current += 1;
+
+    this.id += 1;
   };
 
-  const onRemove = id => {
-    // user.id 가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
-    // = user.id 가 id 인 것을 제거함
-    setUsers(users.filter(user => user.id !== id));
+  handleRemove = (id) =>  {
+    const { users } = this.state;
+
+    this.setState({
+      users: users.filter((user) => user.id !== id),
+    });
   };
-  const onToggle = id => {
-    setUsers(
-      users.map(user =>
+
+  handleToggle = (id) => {
+    const { users } = this.state;
+
+    this.setState({
+      users: users.map((user) =>
         user.id === id ? { ...user, active: !user.active } : user
-      )
-    );
+      ),
+    });
   };
-  const count = useMemo(() => countActiveUsers(users), [users]);
-  return (
-    <>
-      <CreateUser
-        username={username}
-        email={email}
-        onChange={onChange}
-        onCreate={onCreate}
-      /><br/>
-      <UserList users={users} onRemove={onRemove} onToggle={onToggle} /><br/>
-      <div>활성사용자 수 : {count}</div>
-    </>
-  );
+
+  render() {
+    const { username, email, users } = this.state;
+
+    return (
+      <div>
+        <CreateUser
+          username={username}
+          email={email}
+          onChange={this.handleChange}
+          onCreate={this.handleCreate}
+        />
+        <br />
+        <UserList
+          users={users}
+          onRemove={this.handleRemove}
+          onToggle={this.handleToggle}
+        />
+        <br />
+        <div>활성사용자 수 : {countActiveUsers(users)}</div>
+      </div>
+    );
+  }
 }
 
 export default App;
