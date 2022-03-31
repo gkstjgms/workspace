@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-function Square(props) {
+const Square = (props) => {
   return (
     <button className="square" onClick={props.onClick}>
       {props.value}
@@ -18,24 +18,34 @@ class Board extends Component {
     );
   };
 
+  generateRow = (index, max) => {
+    let rows = [];
+
+    for (index; index < max; index++) {
+      rows.push(this.renderSquare(index));
+    }
+    return rows;
+  }
+
+  generateBoard = (columns, rows) => {
+    let board = [];
+
+    for (let i = 0; i < columns * rows; i++) {
+      if (i % columns === 0) {
+        board.push(
+          <div className="board-row" key={i}>
+            {this.generateRow(i, i + columns)}
+          </div>
+        )
+      }
+    }
+    return board;
+  };
+
   render() {
     return (
       <div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
+        <div>{this.generateBoard(3,3)}</div>
       </div>
     );
   }
