@@ -1,22 +1,22 @@
 import React, { Component } from "react";
+
 import Information from "./Information";
 import Languages from "./Languages";
 import Introduce from "./Introduce";
 import Projects from "./Projects";
 
+import Cursor from "./Cursor";
+
 import github from "./image/github.png";
 import github_mouseover from "./image/github_mouseover.png";
-
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       githubImg: github,
+      x: 0,
+      y: 0
     };
-  }
-
-  handleMouse = () => {
-    
   }
 
   handleMouseOver = () => {
@@ -32,11 +32,11 @@ class App extends Component {
   };
 
   render() {
-    const githubImg = this.state.githubImg;
+    const { x, y, githubImg } = this.state;
 
     return (
       <div>
-        <div class="cursor"></div>
+        <Cursor />
         <div>
           <p>
             <span>console</span>.<span>log</span>(
@@ -45,7 +45,6 @@ class App extends Component {
           </p>
           <a
             href="https://github.com/gkstjgms"
-            target="_blank"
             onMouseOver={() => this.handleMouseOver()}
             onMouseOut={() => this.handleMouseOut()}
           >

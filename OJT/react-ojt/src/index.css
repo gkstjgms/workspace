@@ -6,6 +6,7 @@ body {
   background-color: #1e1e1e;
   text-align: center;
   color: white;
+  cursor: auto;
 }
 
 /* text_color*/
@@ -38,7 +39,4 @@ body {
   backdrop-filter: sepia(20%);
   background-size: cover;
   mix-blend-mode: difference;
-}
-.cursor-grow {
-  transform: scale(-2);
 }
