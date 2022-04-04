@@ -1,0 +1,23 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+a {
+    font-size: 21px;
+    text-decoration-line: none;
+    color: white;
+    padding-left: 10px;
+
+}
+
+a:visited {
+    color: white;
+}
+
+img {
+    width: 40px;
+    padding-top: 10px;
+    padding-left: 10px;
+}

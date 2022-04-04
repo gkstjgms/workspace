@@ -3,19 +3,19 @@ import React, { Component } from "react";
 class Introduce extends Component {
   render() {
     return (
-      <div>
-        <p>
-          <span>&lt;</span>
-          <span>h1</span>
-          <span>&gt;</span>
+      <div className="text-div" id="introduce">
+        <p className="text-title">
+        <span className="textGray">&lt;</span>
+          <span className="textBlue">h1</span>
+          <span className="textGray">&gt;</span>
           Introduce myself!
-          <span>&lt;</span>
-          <span>/h1</span>
-          <span>&gt;</span>
-          <span>|</span>
+          <span className="textGray">&lt;</span>
+          <span className="textBlue">/h1</span>
+          <span className="textGray">&gt;</span>
+          <span className="blink">|</span>
         </p>
-        <div>
-          <p>
+        <div className="textbox">
+          <p className="textbox-content">
             안녕하세요! 개발자의 꿈을 키워가고 있는 ✨한서흔✨ 입니다. <br />
             <br /> 저는 프로그램을 작동시키는 일을 정말 좋아합니다. 어려서부터
             소프트웨어 류의 기계를 사용하는 일에 항상 호기심을 가지고 놀곤

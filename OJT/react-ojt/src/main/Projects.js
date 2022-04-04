@@ -9,29 +9,33 @@ import banking2 from "./image/banking2.png";
 class Projects extends Component {
   render() {
     return (
-      <div>
-        <p>
-          <span>&lt;</span>
-          <span>h1</span>
-          <span>&gt;</span>Web beginners Projects<span>&lt;</span>
-          <span>/h1</span>
-          <span>&gt;</span>
-          <span>|</span>
+      <div className="text-div">
+        <p className="text-title">
+          <span className="textGray">&lt;</span>
+          <span className="textBlue">h1</span>
+          <span className="textGray">&gt;</span>
+          Web beginners Projects
+          <span className="textGray">&lt;</span>
+          <span className="textBlue">/h1</span>
+          <span className="textGray">&gt;</span>
+          <span className="blink">|</span>
         </p>
-        <p>"이미지를 클릭하면 해당 project의 HTML 페이지로 이동합니다!"</p>
-        <div>
-          <div>
-            <p>
-              <span>&lt;</span>
-              <span>h2</span>
-              <span>&gt;</span>
+        <p className="textbox-content">
+          "이미지를 클릭하면 해당 project의 HTML 페이지로 이동합니다!"
+        </p>
+        <div className="project-line1">
+          <div className="project-1">
+            <p className="project-title">
+              <span className="textGray">&lt;</span>
+              <span className="textBlue">h2</span>
+              <span className="textGray">&gt;</span>
               Terrarium
-              <span>&lt;</span>
-              <span>/h2</span>
-              <span>&gt;</span>
+              <span className="textGray">&lt;</span>
+              <span className="textBlue">/h2</span>
+              <span className="textGray">&gt;</span>
             </p>
             <div>
-              <p>
+              <p className="textbox-content">
                 {" "}
                 HTML을 사용하여 페이지의 뼈대를 잡고, CSS를 사용해 페이지의
                 요소들을 배치, 그리고 마지막으로 JS를 사용해 페이지 양 옆에
@@ -43,18 +47,18 @@ class Projects extends Component {
             </div>
             <img src={terrarium} />
           </div>
-          <div>
-            <p>
-              <span>&lt;</span>
-              <span>h2</span>
-              <span>&gt;</span>
+          <div className="project-2">
+            <p className="project-title">
+              <span className="textGray">&lt;</span>
+              <span className="textBlue">h2</span>
+              <span className="textGray">&gt;</span>
               Typing-game
-              <span>&lt;</span>
-              <span>/h2</span>
-              <span>&gt;</span>
+              <span className="textGray">&lt;</span>
+              <span className="textBlue">/h2</span>
+              <span className="textGray">&gt;</span>
             </p>
             <div>
-              <p>
+              <p className="textbox-content">
                 {" "}
                 HTML의 요소를 JS 파일에 가져와, 미리 입력된 문장을 가지고 타자
                 연습을 할 수 있도록 event에 따라 화면을 구상했습니다. 추가적으로
@@ -65,19 +69,19 @@ class Projects extends Component {
             <img src={typing} />
           </div>
         </div>
-        <div>
-          <div>
-            <p>
-              <span>&lt;</span>
-              <span>h2</span>
-              <span>&gt;</span>
+        <div className="project-line2">
+          <div className="project-3">
+            <p className="project-title">
+              <span className="textGray">&lt;</span>
+              <span className="textBlue">h2</span>
+              <span className="textGray">&gt;</span>
               Space-game
-              <span>&lt;</span>
-              <span>/h2</span>
-              <span>&gt;</span>
+              <span className="textGray">&lt;</span>
+              <span className="textBlue">/h2</span>
+              <span className="textGray">&gt;</span>
             </p>
             <div>
-              <p>
+              <p className="textbox-content">
                 {" "}
                 Class 상속을 통해 게임 아바타 개체들을 구현하고 화면을 구성하는
                 각 요소들의 행동 범위를 설정했습니다. 적 개체와 플레이어 개체의
@@ -87,18 +91,18 @@ class Projects extends Component {
             </div>
             <img src={space} />
           </div>
-          <div>
-            <p>
-              <span>&lt;</span>
-              <span>h2</span>
-              <span>&gt;</span>
+          <div className="project-4">
+            <p className="project-title"> 
+              <span className="textGray">&lt;</span>
+              <span className="textBlue">h2</span>
+              <span className="textGray">&gt;</span>
               Bank-project
-              <span>&lt;</span>
-              <span>/h2</span>
-              <span>&gt;</span>
+              <span className="textGray">&lt;</span>
+              <span className="textBlue">/h2</span>
+              <span className="textGray">&gt;</span>
             </p>
             <div>
-              <p>
+              <p className="textbox-content">
                 {" "}
                 template을 사용하여 홈페이지의 route를 나누었습니다.
                 커리큘럼에서 제공해준 gateway 5000을 이용하여 은행 시스템에
@@ -107,8 +111,8 @@ class Projects extends Component {
                 폴더에서 서버 실행 후 접속이 가능합니다. 현재 페이지 관람 불가.){" "}
               </p>
             </div>
-            <img src={banking1} />
-            <img src={banking2} />
+            <img className="img4" src={banking1} />
+            <img className="img4" src={banking2} />
           </div>
         </div>
       </div>

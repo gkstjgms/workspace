@@ -3,16 +3,16 @@ import React, { Component } from "react";
 class Languages extends Component {
   render() {
     return (
-      <div>
-        <p>
-          <span>&lt;</span>
-          <span>h1</span>
-          <span>&gt;</span>
+      <div className="text-div">
+        <p className="text-title">
+        <span className="textGray">&lt;</span>
+          <span className="textBlue">h1</span>
+          <span className="textGray">&gt;</span>
           Learning Languages
-          <span>&lt;</span>
-          <span>/h1</span>
-          <span>&gt;</span>
-          <span>|</span>
+          <span className="textGray">&lt;</span>
+          <span className="textBlue">/h1</span>
+          <span className="textGray">&gt;</span>
+          <span className="blink">|</span>
         </p>
         <p>
           C++

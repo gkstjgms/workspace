@@ -3,18 +3,18 @@ import React, { Component } from "react";
 class Information extends Component {
   render() {
     return (
-      <div>
-        <p>
-          <span>&lt;</span>
-          <span>h1</span>
-          <span>&gt;</span>
+      <div className="text-div" id="information">
+        <p className="text-title">
+          <span className="textGray">&lt;</span>
+          <span className="textBlue">h1</span>
+          <span className="textGray">&gt;</span>
           Information
-          <span>&lt;</span>
-          <span>/h1</span>
-          <span>&gt;</span>
-          <span>|</span>
+          <span className="textGray">&lt;</span>
+          <span className="textBlue">/h1</span>
+          <span className="textGray">&gt;</span>
+          <span className="blink">|</span>
         </p>
-        <p>
+        <p className="text-content">
           <b>韓 抒 欣</b>
           <br />
           1998. 03. 04. 출생

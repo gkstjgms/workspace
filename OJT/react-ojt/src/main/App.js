@@ -5,7 +5,8 @@ import Languages from "./Languages";
 import Introduce from "./Introduce";
 import Projects from "./Projects";
 
-import Cursor from "./Cursor";
+import Cursor from "./system/Cursor";
+import Navigation from "./system/Navigation";
 
 import github from "./image/github.png";
 import github_mouseover from "./image/github_mouseover.png";
@@ -14,8 +15,6 @@ class App extends Component {
     super(props);
     this.state = {
       githubImg: github,
-      x: 0,
-      y: 0
     };
   }
 
@@ -32,29 +31,35 @@ class App extends Component {
   };
 
   render() {
-    const { x, y, githubImg } = this.state;
+    const { githubImg } = this.state;
 
     return (
-      <div>
+      <div id="home">
+        <Navigation />
         <Cursor />
-        <div>
+        <div className="title">
           <p>
-            <span>console</span>.<span>log</span>(
-            <span>"Hello, HanSeoheun!"</span>);
-            <span>|</span>
+            <span className="textSkyblue">console</span>.
+            <span className="textYellow">log</span>(
+            <span className="textOrange">"Hello, HanSeoheun!"</span>);
+            <span className="blink">|</span>
           </p>
+        </div>
+        <div className="text-content">with REACT</div>
+        <div>
           <a
             href="https://github.com/gkstjgms"
             onMouseOver={() => this.handleMouseOver()}
             onMouseOut={() => this.handleMouseOut()}
           >
-            <img src={githubImg} alt="github" />
+            <img className="title-logo" src={githubImg} alt="github" />
           </a>
         </div>
         <Information />
         <Languages />
         <Introduce />
         <Projects />
+        <div className="last" />
       </div>
     );
   }

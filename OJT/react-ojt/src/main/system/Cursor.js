@@ -1,4 +1,4 @@
-import React, { Fragment, Component, useCallback, useEffect, useRef, useState } from "react";
+import React, { Fragment, useCallback, useEffect, useRef, useState } from "react";
 
 // 분석 필요
 
@@ -33,34 +33,15 @@ function Cursor() {
     setCoords({ x: clientX, y: clientY });
     cursorRef.current.style.top = clientY + "px";
     cursorRef.current.style.left = clientX + "px";
-    endX.current += (clientX - coords.x) / 10;
-    endY.current += (clientY - coords.y) / 10;
+    endX.current = clientX / 10;
+    endY.current = clientY / 10;
   }, []);
 
   useEventListener("mousemove", onMouseMove, document);
 
-  const styles = {
-    cursor: {
-      zIndex: 999,
-      position: "fixed",
-      borderRadius: "50%",
-      transform: "translate(-50%, -50%)",
-      opacity: 1,
-      width: 40,
-      height: 40,
-      pointerEvents: "none",
-      backgroundColor: "rgba(255, 255, 255, 1)",
-      backgroundSize: "cover",
-      backdropFilter: "sepia(20%)",
-      transition: "all 0.3 ease",
-      transitionProperty: "transform",
-      mixBlendMode: "difference",
-    },
-  };
-
   return (
     <Fragment>
-      <div ref={cursorRef} style={styles.cursor} />
+      <div className="cursor" ref={cursorRef} />
     </Fragment>
   );
 }
