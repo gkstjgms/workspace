@@ -14,7 +14,7 @@ class Languages extends Component {
           <span className="textGray">&gt;</span>
           <span className="blink">|</span>
         </p>
-        <p>
+        <p className="text-content">
           C++
           <br />
           Python

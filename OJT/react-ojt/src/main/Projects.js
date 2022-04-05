@@ -9,7 +9,7 @@ import banking2 from "./image/banking2.png";
 class Projects extends Component {
   render() {
     return (
-      <div className="text-div">
+      <div className="text-div" id="project">
         <p className="text-title">
           <span className="textGray">&lt;</span>
           <span className="textBlue">h1</span>
@@ -66,7 +66,7 @@ class Projects extends Component {
                 타자를 치는 칸 밑에 초시계 기능을 넣었습니다.{" "}
               </p>
             </div>
-            <img src={typing} />
+            <img className="img2" src={typing} />
           </div>
         </div>
         <div className="project-line2">

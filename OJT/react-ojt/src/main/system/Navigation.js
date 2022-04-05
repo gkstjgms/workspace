@@ -19,11 +19,12 @@ class Navigation extends Component {
       <Navbar className="navbar">
         <Nav className="menu-list">
           <Navbar.Brand className="menu">
-            <img src={vscodeImg} />
+            <img className="vscode" src={vscodeImg} alt="VScode" />
           </Navbar.Brand>
           <Nav.Link href="#home">Home</Nav.Link>
           <Nav.Link href="#information">Information</Nav.Link>
           <Nav.Link href="#introduce">Introduce</Nav.Link>
+          <Nav.Link href="#project">Project</Nav.Link>
         </Nav>
       </Navbar>
     );
