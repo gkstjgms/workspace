@@ -1,0 +1,57 @@
+body {
+    margin: 150px 300px;
+    text-align: center;
+}
+
+/*
+h1 {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: gold;
+    border-radius: 10px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: xx-large;
+    color: white;
+}
+
+p {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: x-large;
+}
+
+#textbox {
+    border: 1px solid black;
+    padding: 0px 5px;
+}
+
+#quote {
+    font-family: 'PT Serif', serif;
+    font-size: xx-large;
+}
+
+#start {
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: large;
+}
+
+div {
+    visibility: hidden;
+    border: 1px solid black;
+    padding: 10px 50px 30px;
+}
+
+#typed-value {s
+    visibility: hidden;
+    font-size: large;
+}
+
+.highlight {
+    background-color: yellow;
+}
+
+.error {
+    background-color: lightcoral;
+    border: red;
+}
+*/
