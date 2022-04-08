@@ -7,6 +7,7 @@ class App extends Component {
     return (
       <div>
         <h1>My Terrarium</h1>
+        <p>with react</p>
         <Drag />
         <div id="terrarium">
           <div className="jar-top"></div>
