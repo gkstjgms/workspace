@@ -109,7 +109,7 @@ class Enemy extends GameObject {
                 console.log('Stopped at', this.y) // stop Enemy when they reach end of the canvas
                 clearInterval(id);
             }
-        }, 300) // 
+        }, 300)  
     }
 }
 
