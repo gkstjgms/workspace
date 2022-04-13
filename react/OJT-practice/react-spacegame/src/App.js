@@ -1,19 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import GameOver from "./game/GameOver";
 import Player from "./game/Player";
 import Enemy from "./game/Enemy";
 import Laser from "./game/Laser";
 import "./App.css";
 
-const App = () => {
+const App = (props) => {
+  const [isStart, setIsStart] = useState(false);
+
   let canvas, ctx;
+  let enemies = [];
   const MONSTER_TOTAL = 5;
   const MONSTER_WIDTH = MONSTER_TOTAL * 98;
-  const START_X = (1024 - MONSTER_WIDTH) / 2;
-  const STOP_X = START_X + MONSTER_WIDTH;
+  let lasers = [];
 
   useEffect(() => {
     canvas = document.getElementById("canvas");
-    let enemies = [];
+    ctx = canvas.getContext("2d");
 
     // player
     const player = new Player(
@@ -22,6 +25,8 @@ const App = () => {
     );
 
     // enemy 5*5
+    const START_X = (canvas.width - MONSTER_WIDTH) / 2;
+    const STOP_X = START_X + MONSTER_WIDTH;
     for (let x = START_X; x < STOP_X; x += 98) {
       for (let y = 0; y < 50 * 5; y += 50) {
         enemies.push(new Enemy(x, y));
@@ -29,34 +34,45 @@ const App = () => {
     }
 
     // laser
-    let lasers = [];
     const lasercb = (x, y) => lasers.push(new Laser(x, y));
 
-    setInterval(() => {
-      ctx = canvas.getContext("2d");
+    const gameLoop = setInterval(() => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "black";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      player.update(lasercb);
-      player.draw(ctx);
+      // player
+      if (player.life !== true) {
+        player.update(lasercb, canvas.width);
+        player.draw(ctx, canvas.width, canvas.height);
+      }
 
+      // enemies
       enemies = enemies.filter((enemy) => !enemy.dead);
       enemies.forEach((enemy) => {
+        enemy.update(player, lasers);
         enemy.draw(ctx);
       });
 
+      // lasers
       lasers = lasers.filter((laser) => !laser.dead);
       lasers.forEach((laser) => {
         laser.draw(ctx);
       });
+
       // end of setInterval
     }, 100);
   });
 
   return (
     <div className="canvas">
-      <canvas id="canvas" width="1024" height="768" />
+      {isStart ? (
+        <div>
+          <canvas id="canvas" width="1024" height="768" />
+        </div>
+      ) : (
+        <GameOver />
+      )}
     </div>
   );
 };
