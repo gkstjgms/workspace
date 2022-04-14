@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { Outlet, Link } from "react-router-dom";
+import "./App.css";
 
-function App() {
+// Link : 새로운 페이지에 접근 가능
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Bookkeeper</h1>
+      <nav className="nav">
+        <Link to="/invoices">Invoices</Link> {" "}
+        <Link to="/expenses">Expenses</Link>
+      </nav>
+      <Outlet />
     </div>
   );
 }
-
-export default App;

@@ -14,7 +14,7 @@ export class Enemy extends GameObject {
       } else {
         this.dead = true;
       }
-    }, 100)
+    }, 1000)
   }
 
   draw = (ctx) => {

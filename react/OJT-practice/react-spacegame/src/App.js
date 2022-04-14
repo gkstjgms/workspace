@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
-import GameOver from "./game/GameOver";
 import Player from "./game/Player";
 import Enemy from "./game/Enemy";
 import Laser from "./game/Laser";
 import "./App.css";
 
 const App = (props) => {
-  const [isStart, setIsStart] = useState(false);
+  const [isStart, setIsStart] = useState({
+    win: "",
+    game: true,
+  });
+
+  let gameLoop, gameOver;
 
   let canvas, ctx;
   let enemies = [];
@@ -36,43 +40,91 @@ const App = (props) => {
     // laser
     const lasercb = (x, y) => lasers.push(new Laser(x, y));
 
-    const gameLoop = setInterval(() => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "black";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    if (isStart) {
+      clearTimeout(gameOver);
 
-      // player
-      if (player.life !== true) {
-        player.update(lasercb, canvas.width);
-        player.draw(ctx, canvas.width, canvas.height);
-      }
+      gameLoop = setInterval(() => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // enemies
-      enemies = enemies.filter((enemy) => !enemy.dead);
-      enemies.forEach((enemy) => {
-        enemy.update(player, lasers);
-        enemy.draw(ctx);
-      });
+        // player
+        if (!player.dead) {
+          player.update(ctx, lasercb, canvas.width);
+          player.draw(ctx, canvas.width, canvas.height);
+        }
 
-      // lasers
-      lasers = lasers.filter((laser) => !laser.dead);
-      lasers.forEach((laser) => {
-        laser.draw(ctx);
-      });
+        // enemies
+        enemies = enemies.filter((enemy) => !enemy.dead);
+        enemies.forEach((enemy) => {
+          enemy.update(player, lasers);
+          enemy.draw(ctx);
+        });
 
-      // end of setInterval
-    }, 100);
+        // lasers
+        lasers = lasers.filter((laser) => !laser.dead);
+        lasers.forEach((laser) => {
+          laser.draw(ctx);
+        });
+
+        if (player.points === 2500) {
+          setIsStart({
+            win: "win",
+            game: false,
+          });
+          clearInterval(gameLoop);
+        } else if (player.dead) {
+          setIsStart({
+            win: "lose",
+            game: false,
+          });
+          clearInterval(gameLoop);
+        } else if (enemies.length === 0 && 0 < player.points < 2500) {
+          setIsStart({
+            win: "lose",
+            game: false,
+          });
+          clearInterval(gameLoop);
+        }
+      }, 100);
+    }
+
+    // Gameover
+    if (!isStart.game) {
+      clearInterval(gameLoop);
+
+      gameOver = setInterval(() => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const displayMessage = (message, color = "red") => {
+          ctx.font = "25px Arial";
+          ctx.fillStyle = color;
+          ctx.textAlign = "center";
+          ctx.fillText(message, canvas.width / 2, canvas.height / 2);
+        };
+
+        if (isStart.win === "win") {
+          displayMessage(
+            "Victory !!! Press [Enter] to start a new game <Captain Pew Pew>",
+            "green"
+          );
+        } else {
+          displayMessage(
+            "You losed !!! Press [Enter] to start a new game <Captain Pew Pew>"
+          );
+        }
+        document.onkeydown = (e) => {
+          document.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+              window.location.reload();
+            }
+          });
+        };
+      }, 500);
+    }
   });
 
   return (
     <div className="canvas">
-      {isStart ? (
-        <div>
-          <canvas id="canvas" width="1024" height="768" />
-        </div>
-      ) : (
-        <GameOver />
-      )}
+      <canvas id="canvas" width="1024" height="768" />
     </div>
   );
 };

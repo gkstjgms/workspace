@@ -1,4 +1,7 @@
 import img from "./image/player.png";
+import leftImg from "./image/playerLeft.png";
+import rightImg from "./image/playerRight.png";
+import DamagedImg from "./image/playerDamaged.png";
 import lifeImg from "./image/life.png";
 import GameObject from "./GameObject";
 
@@ -11,25 +14,33 @@ export class Player extends GameObject {
     this.points = 0;
     this.life = 3;
     this.cooltime = Date.now();
+    this.image = new Image();
   }
 
   draw = (ctx, width, height) => {
-    const image = new Image();
-    image.src = img;
-    ctx.drawImage(image, this.x, this.y, this.width, this.height);
+    if (this.life === 3) {
+      this.image.src = img;
+    } else {
+      this.image.src = DamagedImg;
+    }
+    ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
 
     this.drawPoints(ctx, height);
     this.drawLife(ctx, width, height);
   };
 
-  update = (lasercb, width) => {
+  update = (ctx, lasercb, width) => {
     document.onkeydown = (e) => {
       // left
       if (e.keyCode === 37) {
+        this.image.src = leftImg;
+        ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
         this.x = this.x > 0 ? this.x - this.speed : (this.x = -2);
       }
       // right
       if (e.keyCode === 39) {
+        this.image.src = rightImg;
+        ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
         this.x = this.x + this.width < width ? this.x + this.speed : this.x;
       }
       document.addEventListener("keypress", (e) => {
@@ -39,9 +50,12 @@ export class Player extends GameObject {
             this.cooltime = Date.now();
           }
         }
+        if (e.key = "Enter") {
+          window.location.reload();
+        }
       });
     };
-    if (this.life === 0) {
+    if (this.life < 0) {
       this.dead = true;
     }
   };
