@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import terrarium from "./image/terrarium.png";
 import typing from "./image/typing.png";
@@ -21,7 +22,7 @@ class Projects extends Component {
           <span className="blink">|</span>
         </p>
         <p className="textbox-content">
-          "이미지를 클릭하면 해당 project의 HTML 페이지로 이동합니다!"
+          "이미지를 클릭하면 해당 project의 페이지로 이동합니다!"
         </p>
         <div className="project-line1">
           <div className="project-1">
@@ -45,7 +46,12 @@ class Projects extends Component {
                 추가했습니다.{" "}
               </p>
             </div>
-            <img src={terrarium} />
+            <Link
+              to="/terrarium"
+              onClick={() => this.props.changeColor("white")}
+            >
+              <img className="imgs" src={terrarium} alt="terrarium" />
+            </Link>
           </div>
           <div className="project-2">
             <p className="project-title">
@@ -89,10 +95,10 @@ class Projects extends Component {
                 플레이어의 생명 수와 점수가 조절되도록 코드를 구성했습니다.
               </p>
             </div>
-            <img src={space} />
+            <img className="imgs" src={space} />
           </div>
           <div className="project-4">
-            <p className="project-title"> 
+            <p className="project-title">
               <span className="textGray">&lt;</span>
               <span className="textBlue">h2</span>
               <span className="textGray">&gt;</span>

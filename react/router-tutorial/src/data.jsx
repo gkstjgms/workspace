@@ -31,6 +31,12 @@ let invoices = [
   },
 ];
 
+// export invoices
 export function getInvoices() {
   return invoices;
+}
+
+// lookup invoices by their number
+export function getInvoice(number) {
+  return invoices.find((invoice) => invoice.number === number);
 }

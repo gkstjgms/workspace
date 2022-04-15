@@ -10,6 +10,8 @@ import Navigation from "./system/Navigation";
 
 import github from "./image/github.png";
 import github_mouseover from "./image/github_mouseover.png";
+
+import "./App.css"
 class App extends Component {
   constructor(props) {
     super(props);
@@ -38,7 +40,7 @@ class App extends Component {
         <Navigation />
         <Cursor />
         <div className="title">
-          <p>
+          <p className="textWhite">
             <span className="textSkyblue">console</span>.
             <span className="textYellow">log</span>(
             <span className="textOrange">"Hello, HanSeoheun!"</span>);
@@ -46,7 +48,7 @@ class App extends Component {
           </p>
         </div>
         <div className="text-content">with REACT</div>
-        <div>
+        <div className="logo">
           <a
             href="https://github.com/gkstjgms"
             onMouseOver={() => this.handleMouseOver()}

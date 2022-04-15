@@ -1,0 +1,161 @@
+.home {
+  text-align: center;
+  cursor: none;
+}
+
+.last {
+  padding-bottom: 300px;
+}
+
+/* cursor */
+.cursor {
+  z-index: 999;
+  position: fixed;
+  border: 20px solid white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  width: 40;
+  height: 40;
+  pointer-events: none;
+  background-size: cover;
+  backdrop-filter: sepia(20%);
+  transition: all 0.3 ease;
+  transition-property: transform;
+  mix-blend-mode: difference;
+}
+
+/* text_color*/
+.textWhite {
+  color: white;
+}
+
+.textSkyblue {
+  color: lightblue;
+}
+
+.textYellow {
+  color: gold;
+}
+
+.textOrange {
+  color: lightsalmon;
+}
+
+.textGray {
+  color: gray;
+}
+
+.textBlue {
+  color: dodgerblue;
+}
+
+/* blink motion */
+@keyframes blink-effect {
+  50% {
+    opacity: 0;
+  }
+}
+
+.blink {
+  animation: blink-effect 2s step-end infinite;
+}
+
+/* App.js */
+.title {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px 0px;
+  font-size: 50px;
+  font-family: 'Courier Prime', monospace;
+}
+
+.logo {
+  text-align: center;
+}
+
+.title-logo {
+  width: 45px;
+  margin-top: 25px;
+}
+
+/* Projects.js */
+.project-line1 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.project-line2 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+/* text settings */
+.text-div {
+  position: relative;
+  display: block;
+  justify-content: center;
+  top: 200px;
+  clear: both;
+  margin: 50px 100px;
+}
+
+.text-title {
+  margin-top: 100px;
+  font-size: 25px;
+  font-family: 'Courier Prime', monospace;
+  color: white;
+}
+
+.project-title {
+  margin: 50px 50px 0;
+  justify-content: center;
+  font-size: 20px;
+  font-family: 'Courier Prime', monospace;
+  color: white;
+}
+
+.text-content {
+  text-align: center;
+  font-family: 'Nanum Myeongjo', serif;
+  line-height: 170%;
+  color: white;
+}
+
+.textbox {
+  border: 1px solid white;
+  border-style: dashed;
+  margin: 0 400px;
+  color: white;
+}
+
+.textbox-content {
+  margin: 50px 50px;
+  font-family: 'Nanum Myeongjo', serif;
+  line-height: 170%;
+  color: white;
+}
+
+/* img */
+.imgs {
+  width: 600px;
+  border-radius: 10px;
+}
+
+.img2 {
+  width: 600px;
+  border-radius: 10px;
+  padding-top: 80px;
+  border-radius: 10px;
+}
+
+.img4 {
+  width: 600px;
+  border-radius: 10px;
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
