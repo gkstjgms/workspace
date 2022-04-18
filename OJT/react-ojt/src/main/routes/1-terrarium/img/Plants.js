@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Draggable from "react-draggable";
 
 import {
   plant1,
@@ -37,34 +38,31 @@ class Plants extends Component {
         <div className="container" id="left-container">
           {left_img.map((image) => (
             <div key={image} className="plant-holder">
-              <img
-                className="plant"
-                alt="plant"
-                id={`${image}`}
-                src={image}
-                draggable={true}
-                onPointerDown={onPointerDown}
-                onDrag={onDrag}
-                onDragEnd={onDragEnd}
-                onClick={onClick}
-              />
+              <Draggable>
+                <img
+                  className="plant"
+                  alt="plant"
+                  id={`${image}`}
+                  src={image}
+                  onClick={onClick}
+                />
+              </Draggable>
             </div>
           ))}
         </div>
         <div className="container" id="right-container">
           {right_img.map((image) => (
             <div key={image} className="plant-holder">
-              <img
-                className="plant"
-                alt="plant"
-                id={`${image}`}
-                src={image}
-                draggable={true}
-                onPointerDown={onPointerDown}
-                onDrag={onDrag}
-                onDragEnd={onDragEnd}
-                onClick={onClick}
-              />
+              <Draggable>
+                <img
+                  className="plant"
+                  alt="plant"
+                  id={`${image}`}
+                  src={image}
+                  draggable={true}
+                  onClick={onClick}
+                />
+              </Draggable>
             </div>
           ))}
         </div>

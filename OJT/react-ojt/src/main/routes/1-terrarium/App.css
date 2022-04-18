@@ -25,21 +25,22 @@
 
 #left-container .plant-holder {
   position: left;
-  height: 13%;
+  height: 12%;
   left: -10px;
 }
 
 #right-container .plant-holder {
   position: right;
-  height: 13%;
+  height: 12%;
   right: -10px;
 }
 
 .plant {
   position: absolute;
-  width: 100%;
+  width: 88%;
   z-index: 2;
-  cursor: pointer;
+  cursor: move;
+  user-select: none;
 }
 
 .jar-walls {
@@ -51,7 +52,7 @@
   bottom: 0.5%;
   left: 30%;
   opacity: 0.5;
-  z-index: 1;
+  z-index: -1;
 }
 
 .jar-top {
@@ -62,7 +63,7 @@
   bottom: 80.5%;
   left: 34%;
   opacity: 0.7;
-  z-index: 1;
+  z-index: 0;
 }
 
 .jar-bottom {
@@ -96,7 +97,7 @@
   bottom: 20%;
   left: 5%;
   opacity: 0.7;
-  z-index: -1; 
+  z-index: 0; 
 }
 
 .jar-glossy-short {
@@ -108,5 +109,5 @@
   bottom: 50%;
   left: 5%;
   opacity: 0.7;
-  z-index: -1;
+  z-index: 0;
 }

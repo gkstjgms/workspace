@@ -1,0 +1,116 @@
+.bank-body {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 50px;
+    color: white;
+}
+
+.login-section {
+    justify-content: center;
+    height: 550px;
+    width: 300px;
+    background-color: rgb(68, 168, 250);
+    padding: 80px;
+    border-radius: 10px;
+}
+
+.dashboard-section {
+    justify-content: center;
+    width: 300px;
+    background-color: rgb(68, 168, 250);
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+}
+
+#description {
+    color: rgb(68, 168, 250);
+}
+
+.bank-h1 .bank-h2 {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.label, #label {
+    font-size: 13px;
+    color: rgb(4, 0, 61);
+}
+
+.bank-input {
+    height: 25px;
+    width: 292px;
+    margin: 5px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+}
+
+.bank-button {
+    height: 25px;
+    width: 280px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    color: rgb(68, 168, 250);
+    font-weight: bold;
+}
+
+.logoutbt {
+    width: 100px;
+    background-color: white;
+    color: rgb(68, 168, 250);
+}
+
+.bank-table {
+    width: 300px;
+    table-layout: fixed;
+}
+.banktr, .bankth {
+    border-radius: 5px;
+    text-align: center;
+}
+.bankth {
+    background-color: rgb(68, 168, 250);
+    color: white;
+}
+.banktd {
+    background-color: white;
+}
+
+.line {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.35);
+    font-size: 15px;
+    margin: 10px 0px;
+}
+
+.line::before {
+    content: "";
+    flex-grow: 1;
+    margin: 0px 5px;
+    background: rgba(0, 0, 0, 0.35);
+    height: 1px;
+    font-size: 0px;
+    line-height: 0px;
+}
+
+.line::after {
+    content: "";
+    flex-grow: 1;
+    margin: 0px 5px;
+    background: rgba(0, 0, 0, 0.35);
+    height: 1px;
+    font-size: 0px;
+    line-height: 0px;
+}
+
+.loginError {
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+}

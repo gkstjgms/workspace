@@ -1,0 +1,57 @@
+.typing-body {
+    margin: 150px 300px;
+    text-align: center;
+}
+
+.typing-h1 {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: gold;
+    border-radius: 10px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: xx-large;
+    color: black;
+}
+
+.typing-p {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: x-large;
+    color: white;
+}
+
+.startbtn {
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: large;
+}
+
+.quote {
+    font-family: 'PT Serif', serif;
+    font-size: xx-large;
+    color: white;
+}
+
+.typing {
+    border: 1px solid white;
+    padding: 10px 50px 30px;
+}
+
+.typed-value {
+    font-size: large;
+}
+
+.message {
+    font-size: large;
+    color: lightgoldenrodyellow;
+}
+
+.highlight {
+    background-color: yellow;
+    color: black;
+}
+
+.error {
+    font-size: large;
+    background-color: lightcoral;
+    border: 1px solid red;
+}

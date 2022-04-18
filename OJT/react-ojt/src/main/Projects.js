@@ -46,10 +46,7 @@ class Projects extends Component {
                 추가했습니다.{" "}
               </p>
             </div>
-            <Link
-              to="/terrarium"
-              onClick={() => this.props.changeColor("white")}
-            >
+            <Link to="/terrarium">
               <img className="imgs" src={terrarium} alt="terrarium" />
             </Link>
           </div>
@@ -72,7 +69,9 @@ class Projects extends Component {
                 타자를 치는 칸 밑에 초시계 기능을 넣었습니다.{" "}
               </p>
             </div>
-            <img className="img2" src={typing} />
+            <Link to="/typinggame">
+              <img className="img2" src={typing} />
+            </Link>
           </div>
         </div>
         <div className="project-line2">
@@ -95,7 +94,9 @@ class Projects extends Component {
                 플레이어의 생명 수와 점수가 조절되도록 코드를 구성했습니다.
               </p>
             </div>
-            <img className="imgs" src={space} />
+            <Link to="/spacegame">
+              <img className="imgs" src={space} />
+            </Link>
           </div>
           <div className="project-4">
             <p className="project-title">
@@ -117,8 +118,10 @@ class Projects extends Component {
                 폴더에서 서버 실행 후 접속이 가능합니다. 현재 페이지 관람 불가.){" "}
               </p>
             </div>
-            <img className="img4" src={banking1} />
-            <img className="img4" src={banking2} />
+            <Link to="/bank">
+              <img className="img4" src={banking1} />
+              <img className="img4" src={banking2} />
+            </Link>
           </div>
         </div>
       </div>

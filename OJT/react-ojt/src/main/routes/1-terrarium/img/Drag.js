@@ -65,9 +65,6 @@ class Drag extends Component {
     return (
       <div>
         <Plants
-          onPointerDown={this.handlePointerDown}
-          onDrag={this.handleDrag}
-          onDragEnd={this.handleDragEnd}
           onClick={this.handleDbclick}
         />
       </div>
