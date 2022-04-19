@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Register from "./login/Register";
 
@@ -29,15 +29,23 @@ class App extends Component {
           ],
         },
       ],
+      current: {
+        description: "",
+        balance: 0,
+        currency: "",
+        transactions: [],
+      },
     };
   }
 
+  /*
   handleChange = (e) => {
     const { name, value } = e.target;
 
     this.setState({
       [name]: value,
     });
+    console.log(value);
   };
 
   id = 2;
@@ -62,10 +70,12 @@ class App extends Component {
 
     this.id += 1;
   };
+  */
 
-  // find user - add function
-  handleToggle = (id) => {
-    const { users } = this.state;
+  handleLogin = (e) => {
+    e.preventDefault();
+    let navigate = useNavigate();
+    navigate("/bank/dashboard");
   };
 
   render() {
@@ -73,21 +83,19 @@ class App extends Component {
       <div className="bank-body">
         <div>
           <h1 className="bank-h1">Banking</h1>
-        </div>
-        <div class="login-section">
-          <h2 className="bank-h2">《 LOGIN 》</h2>
-          <form className="loginForm">
-            <label className="label" for="user">
-              USERNAME
-            </label>{" "}
-            <input className="bank-input" name="user" type="text" />
-            <div className="loginError"></div>
-            <Link to="/bank/dashboard">
+          <div className="login-section">
+            <h2 className="bank-h2">《 LOGIN 》</h2>
+            <form className="loginForm">
+              <label className="label" for="user">
+                USERNAME
+              </label>{" "}
+              <input className="bank-input" name="username" type="text" />
+              <div className="loginError"></div>
               <button className="bank-button">LOGIN</button>
-            </Link>
-          </form>
-          <div class="line">OR</div>
-          <Register />
+            </form>
+            <div className="line">OR</div>
+            <Register />
+          </div>
         </div>
       </div>
     );

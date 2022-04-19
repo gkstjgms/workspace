@@ -21,11 +21,14 @@
     background-color: rgb(68, 168, 250);
     padding: 20px;
     border-radius: 10px;
-    color: black;
 }
 
-#description {
+.description {
     color: rgb(68, 168, 250);
+}
+
+.bank-p {
+    color: black;
 }
 
 .bank-h1 .bank-h2 {
@@ -59,9 +62,14 @@
 }
 
 .logoutbt {
+    height: 25px;
     width: 100px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
     background-color: white;
     color: rgb(68, 168, 250);
+    font-weight: bold;
 }
 
 .bank-table {
@@ -84,7 +92,7 @@
     display: flex;
     flex-basis: 100%;
     align-items: center;
-    color: rgba(0, 0, 0, 0.35);
+    color: white;
     font-size: 15px;
     margin: 10px 0px;
 }
@@ -93,7 +101,7 @@
     content: "";
     flex-grow: 1;
     margin: 0px 5px;
-    background: rgba(0, 0, 0, 0.35);
+    background: white;
     height: 1px;
     font-size: 0px;
     line-height: 0px;
@@ -103,7 +111,7 @@
     content: "";
     flex-grow: 1;
     margin: 0px 5px;
-    background: rgba(0, 0, 0, 0.35);
+    background: white;
     height: 1px;
     font-size: 0px;
     line-height: 0px;

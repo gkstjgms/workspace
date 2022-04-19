@@ -14,7 +14,7 @@ class Register extends Component {
             className="bank-input"
             name="user"
             type="text"
-            maxlength="20"
+            maxLength="20"
             required
           />
           <label className="label" for="currency">
@@ -25,7 +25,7 @@ class Register extends Component {
             name="currency"
             type="text"
             value="$"
-            maxlength="5"
+            maxLength="5"
             required
           />
           <label className="label" for="description">
@@ -35,7 +35,7 @@ class Register extends Component {
             className="bank-input"
             name="description"
             type="text"
-            maxlength="100"
+            maxLength="100"
           />
           <label className="label" for="balance">
             CURRENT BALANCE
