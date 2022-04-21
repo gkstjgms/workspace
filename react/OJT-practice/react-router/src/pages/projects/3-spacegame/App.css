@@ -1,0 +1,10 @@
+.canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#canvas {
+    background-image: url("./game/image/starBackground.png");
+    background-size: cover;
+}

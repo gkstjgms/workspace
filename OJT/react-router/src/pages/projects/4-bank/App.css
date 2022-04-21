@@ -1,0 +1,122 @@
+.bank-body {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 50px;
+    color: white;
+}
+
+.login-section {
+    justify-content: center;
+    height: 550px;
+    width: 300px;
+    background-color: rgb(68, 168, 250);
+    padding: 80px;
+    border-radius: 10px;
+}
+
+.dashboard-section {
+    justify-content: center;
+    width: 300px;
+    background-color: rgb(68, 168, 250);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.description {
+    color: white;
+}
+
+.bank-p {
+    color: black;
+}
+
+.bank-h1 .bank-h2 {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.label, #label {
+    font-size: 13px;
+    color: rgb(4, 0, 61);
+}
+
+.bank-input {
+    height: 25px;
+    width: 292px;
+    margin: 5px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+}
+
+.bank-button {
+    height: 25px;
+    width: 285px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    color: rgb(68, 168, 250);
+    font-weight: bold;
+}
+
+.logoutbt {
+    height: 25px;
+    width: 100px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    color: rgb(68, 168, 250);
+    font-weight: bold;
+}
+
+.bank-table {
+    width: 300px;
+    table-layout: fixed;
+}
+.banktr, .bankth {
+    border-radius: 5px;
+    border-color: white;
+    text-align: center;
+}
+.bankth {
+    background-color: white;
+    color: rgb(68, 168, 250);
+}
+
+.line {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: white;
+    font-size: 15px;
+    margin: 10px 0px;
+}
+
+.line::before {
+    content: "";
+    flex-grow: 1;
+    margin: 0px 5px;
+    background: white;
+    height: 1px;
+    font-size: 0px;
+    line-height: 0px;
+}
+
+.line::after {
+    content: "";
+    flex-grow: 1;
+    margin: 0px 5px;
+    background: white;
+    height: 1px;
+    font-size: 0px;
+    line-height: 0px;
+}
+
+.loginError {
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+}
