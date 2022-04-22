@@ -1,6 +1,6 @@
 import React from "react";
 
-const Register = ({ inputs, onChange, onCreate  }) => {
+const Register = ({ inputs, onChange, onCreate }) => {
   return (
     <div>
       <h2>《 REGISTER 》</h2>
@@ -29,7 +29,7 @@ const Register = ({ inputs, onChange, onCreate  }) => {
         required
       />
       <label className="label" for="description">
-        DISCRIPTION
+        DESCRIPTION
       </label>
       <input
         className="bank-input"

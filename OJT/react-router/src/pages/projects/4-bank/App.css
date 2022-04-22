@@ -1,3 +1,7 @@
+.tohome {
+    height: 40px;
+}
+
 .bank-body {
     display: flex;
     justify-content: center;

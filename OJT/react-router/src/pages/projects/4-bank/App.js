@@ -1,7 +1,9 @@
 import { React, useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import Register from "./Register";
+
+import homeImg from "../home.png";
 
 import "./App.css";
 
@@ -13,9 +15,15 @@ const App = () => {
     currency: "$",
     description: "",
     balance: 0,
-    transactions: []
+    transactions: [],
   });
-  const { username, currency, description, balance, transactions } = inputs;
+  const {
+    username,
+    currency,
+    description,
+    balance,
+    transactions = [],
+  } = inputs;
 
   const [users, setUsers] = useState([
     {
@@ -29,14 +37,14 @@ const App = () => {
         { id: "2", date: "2020-10-03", object: "Book", amount: -10 },
         { id: "3", date: "2020-10-04", object: "Sandwich", amount: -5 },
       ],
-    }
+    },
   ]);
 
   const [current, setCurrent] = useState({
-    description: "",
-    currency: "",
-    balance: 0,
-    transactions: [],
+    currentdes: "",
+    currentcur: "",
+    currentbal: 0,
+    currenttrans: [],
   });
 
   const onChange = (e) => {
@@ -49,25 +57,26 @@ const App = () => {
 
   const nextId = useRef(2);
   const onCreate = () => {
+    console.log(users);
     const user = {
       id: nextId.current,
       username,
       currency,
       description,
       balance,
-      transactions
+      transactions,
     };
     setUsers(users.concat(user));
 
     setCurrent({
-      description: user.description,
-      currency: user.currency,
-      balance: user.balance,
+      currentdes: description,
+      currentcur: currency,
+      currentbal: balance,
+      currenttrans: transactions,
     });
-
     nextId.current += 1;
-    navigate("/bank/dashboard/", { state: current });
 
+    alert("가입 완료했습니다. 로그인 해주세요.");
     setInputs({
       username: "",
       currency: "$",
@@ -83,10 +92,10 @@ const App = () => {
     if (user !== undefined) {
       status.current = true;
       setCurrent({
-        description: user.description,
-        currency: user.currency,
-        balance: user.balance,
-        transactions: user.transactions,
+        currentdes: user.description,
+        currentcur: user.currency,
+        currentbal: user.balance,
+        currenttrans: user.transactions,
       });
     }
   };
@@ -103,6 +112,9 @@ const App = () => {
   return (
     <div className="bank-body">
       <div>
+        <Link to="/">
+          <img className="tohome" src={homeImg} alt="to home" />
+        </Link>
         <h1 className="bank-h1">Banking</h1>
         <div className="login-section">
           <h2 className="bank-h2">《 LOGIN 》</h2>

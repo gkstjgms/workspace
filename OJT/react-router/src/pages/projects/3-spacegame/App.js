@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Player from "./game/Player";
 import Enemy from "./game/Enemy";
 import Laser from "./game/Laser";
+import homeImg from "../home.png";
 import "./App.css";
 
 const App = (props) => {
@@ -123,8 +125,13 @@ const App = (props) => {
   });
 
   return (
-    <div className="canvas">
-      <canvas id="canvas" width="1024" height="768" />
+    <div>
+      <Link to="/">
+        <img className="tohome" src={homeImg} alt="to home" />
+      </Link>
+      <div className="canvas">
+        <canvas id="canvas" width="1024" height="768" />
+      </div>
     </div>
   );
 };

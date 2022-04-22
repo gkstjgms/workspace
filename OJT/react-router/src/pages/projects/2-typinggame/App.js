@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Button from "./game/Button";
 import Typing from "./game/Typing";
+import homeImg from "../home.png";
 import "./App.css";
 
 const Homes = [
@@ -37,7 +39,7 @@ class App extends Component {
       timer: 0,
     };
   }
-  
+
   handleClick = () => {
     const { quotes, quote, timer } = this.state;
 
@@ -109,7 +111,10 @@ class App extends Component {
 
     return (
       <div className="typing-body">
-        <Button onClick={this.handleClick}/>
+        <Link to="/">
+          <img className="tohome" src={homeImg} alt="to home" />
+        </Link>
+        <Button onClick={this.handleClick} />
         <div className="typing">
           <p className="quote">
             {words.map((word) => {

@@ -48,9 +48,7 @@ function App() {
       username,
       email
     };
-    console.log(user);
     setUsers(users.concat(user));
-    console.log(users);
 
     setInputs({
       username: '',

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Draggable from "react-draggable";
+import { Link } from "react-router-dom";
 
 import {
   plant1,
@@ -17,6 +18,8 @@ import {
   plant13,
   plant14,
 } from "./Images";
+
+import homeImg from "../../home.png";
 
 class Plants extends Component {
   render() {
@@ -36,6 +39,9 @@ class Plants extends Component {
     return (
       <div>
         <div className="container" id="left-container">
+          <Link to="/">
+            <img className="tohome" src={homeImg} alt="to home" />
+          </Link>
           {left_img.map((image) => (
             <div key={image} className="plant-holder">
               <Draggable>

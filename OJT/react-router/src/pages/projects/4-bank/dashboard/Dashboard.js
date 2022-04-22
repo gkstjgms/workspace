@@ -2,7 +2,6 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Transactions = ({ item }) => {
-  console.log(item);
   return (
     <div>
       <table className="bank-table">
@@ -32,15 +31,15 @@ const Dashboard = () => {
         <section className="dashboard-section">
           <h2>
             <section className="description" aria-label="Account description">
-              {state.description}
+              {state.currentdes}
             </section>
           </h2>
           <div className="line">*</div>
           <p className="bank-p">
             Balance:{" "}
             <span id="balance">
-              {state.balance}
-              {state.currency}
+              {state.currentbal}
+              {state.currentcur}
             </span>
           </p>
         </section>
@@ -57,7 +56,7 @@ const Dashboard = () => {
             </thead>
             <tbody className="transactions"></tbody>
           </table>
-          {state.transactions.map((item) => (
+          {state.currenttrans.map((item) => (
             <Transactions item={item} />
           ))}
         </section>
