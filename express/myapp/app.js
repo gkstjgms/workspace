@@ -1,4 +1,4 @@
-import express from "express";
+const express = require('express');
 import birds from './birds.js';
 
 const app = express();
