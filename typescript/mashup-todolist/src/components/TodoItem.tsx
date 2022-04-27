@@ -1,7 +1,7 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
-import { MdDone, MdDelete } from 'react-icons/md';
-import { useTodoDispatch } from '../TodoContext';
+import React from "react";
+import styled, { css } from "styled-components";
+import { MdDone, MdDelete } from "react-icons/md";
+import { useTodoDispatch } from "../TodoContext";
 
 const Remove = styled.div`
   display: flex;
@@ -28,6 +28,9 @@ const TodoItemBlock = styled.div`
   }
 `;
 
+interface ICheckCircle {
+  done: boolean;
+}
 const CheckCircle = styled.div`
   width: 32px;
   height: 32px;
@@ -39,7 +42,7 @@ const CheckCircle = styled.div`
   justify-content: center;
   margin-right: 20px;
   cursor: pointer;
-  ${props =>
+  ${(props: ICheckCircle) =>
     props.done &&
     css`
       border: 1px solid #38d9a9;
@@ -47,11 +50,14 @@ const CheckCircle = styled.div`
     `}
 `;
 
+interface IText {
+  done: boolean;
+}
 const Text = styled.div`
   flex: 1;
   font-size: 21px;
   color: #495057;
-  ${props =>
+  ${(props: IText) =>
     props.done &&
     css`
       color: #ced4da;
@@ -63,15 +69,15 @@ function TodoItem({ id, done, text }) {
 
   const onToggle = () => {
     dispatch({
-      type: 'TOGGLE',
-      id
+      type: "TOGGLE",
+      id,
     });
   };
 
   const onRemove = () => {
     dispatch({
-      type: 'REMOVE',
-      id
+      type: "REMOVE",
+      id,
     });
   };
 
