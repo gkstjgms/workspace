@@ -24,7 +24,7 @@ connectionOptions.push({
     username: process.env.INTERNAL_AUTH ? process.env.INTERNAL_AUTH : 'root',
     database: process.env.INTERNAL_DATABASE ? process.env.INTERNAL_DATABASE : 'todoList',
     password: process.env.INTERNAL_PASSWORD ? process.env.INTERNAL_PASSWORD : 'tj3gms4!',
-    logging: process.env.INTERNAL_LOG === '1' ? true : false,
+    logging: true,
     entities: Entity,
 });
 
@@ -36,7 +36,7 @@ const run = async (options) => {
         app.use(cors());
         app.use(express.json());
         app.use(express.urlencoded({ extended: false }));
-        app.use(express.static('../client/build'));
+        app.use(express.static('../ui/build'));
         app.use(
             morgan(`":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"`, {}),
         );
@@ -76,7 +76,7 @@ const run = async (options) => {
 
         createTerminus(server, {
             signal: 'SIGINT',
-            healthChecks: {
+            healthChecks: { 
                 '/_health/liveness': onHealthCheck,
             },
             onSignal: onSignal,

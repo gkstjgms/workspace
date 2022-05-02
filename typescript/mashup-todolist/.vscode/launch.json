@@ -24,6 +24,13 @@
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "ui",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/ui"
         }
     ]
 }

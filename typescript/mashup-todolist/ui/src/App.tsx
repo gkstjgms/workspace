@@ -15,7 +15,7 @@ function App() {
   return (
     <TodoProvider>
       <GlobalStyle />
-      <TodoTemplate>
+      <TodoTemplate >
         <TodoHead />
         <TodoList />
         <TodoCreate />

@@ -84,7 +84,7 @@ function TodoItem({ id, done, text }) {
   return (
     <TodoItemBlock>
       <CheckCircle done={done} onClick={onToggle}>
-        {done && <MdDone />}
+        {done === 1 && <MdDone />} 
       </CheckCircle>
       <Text done={done}>{text}</Text>
       <Remove onClick={onRemove}>

@@ -93,12 +93,11 @@ function TodoCreate() {
     dispatch({
       type: "CREATE",
       todo: {
-        id: nextId.current,
+        id: nextId?nextId:nextId.current,
         text: value,
         done: false,
       },
     });
-    nextId.current += 1;
     setOpen(false);
     setValue("");
   };
