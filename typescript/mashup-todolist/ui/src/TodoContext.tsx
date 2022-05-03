@@ -45,13 +45,13 @@ const initialTodos = [
 
 export function TodoProvider({ children }) {
     const [state, dispatch] = useReducer(todoReducer, initialTodos);
-    const [nextId,setNextID] = useState(5);
+    const [nextId, setNextID] = useState(5);
     const initial = useEffect(() => {
         let data;
         async function getItems() {
             data = await apiCaller.GetItems();
-            let nextID = data[data.length-1].id;
-            setNextID(nextID+1);
+            let nextID = data[data.length - 1].id;
+            setNextID(nextID + 1);
             dispatch({
                 type: 'REPLACE',
                 array: data,

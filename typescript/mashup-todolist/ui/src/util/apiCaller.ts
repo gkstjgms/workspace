@@ -34,7 +34,7 @@ export async function DeleteItems(todo) {
     try {
         return await axios.delete('/deleteItem', {
             data: { id: todo.id },
-         });
+        });
     } catch (err) {
         console.log(err);
     }

@@ -76,7 +76,7 @@ const run = async (options) => {
 
         createTerminus(server, {
             signal: 'SIGINT',
-            healthChecks: { 
+            healthChecks: {
                 '/_health/liveness': onHealthCheck,
             },
             onSignal: onSignal,

@@ -12,4 +12,5 @@ export class TodoList {
 
     @Column('tinyint', { name: 'done', nullable: true })
     done: boolean;
+
 }
