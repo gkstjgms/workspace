@@ -1,7 +1,7 @@
-import { TodoList } from './TodoList';
+import { myTodoList } from './TodoList';
 
 const Entity = [
-    TodoList,
+    myTodoList,
 ];
 
 export default Entity;

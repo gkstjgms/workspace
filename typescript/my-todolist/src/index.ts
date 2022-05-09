@@ -22,7 +22,7 @@ connectionOptions.push({
     synchronize: process.env.INTERNAL_SYNC === '1' ? true : false,
     host: process.env.INTERNAL_HOST ? process.env.INTERNAL_HOST : '127.0.0.1',
     username: process.env.INTERNAL_AUTH ? process.env.INTERNAL_AUTH : 'root',
-    database: process.env.INTERNAL_DATABASE ? process.env.INTERNAL_DATABASE : 'todoList',
+    database: process.env.INTERNAL_DATABASE ? process.env.INTERNAL_DATABASE : 'myTodoList',
     password: process.env.INTERNAL_PASSWORD ? process.env.INTERNAL_PASSWORD : 'tj3gms4!',
     logging: true,
     entities: Entity,
