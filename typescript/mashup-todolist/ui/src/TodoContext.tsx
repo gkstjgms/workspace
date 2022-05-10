@@ -8,7 +8,7 @@ const TodoNextIdContext = createContext(null);
 function todoReducer(state, action) {
     switch (action.type) {
         case 'CREATE': {
-            apiCaller.NewItems(action.todo);
+            apiCaller.AddItems(action.todo);
             return state.concat(action.todo);
         }
         case 'TOGGLE': {
@@ -31,21 +31,19 @@ function todoReducer(state, action) {
 const initialTodos = [
     {
         id: 1,
-        text: '아침 산책',
-        done: true,
+        text: 'sample 1',
+        done: false,
     },
     {
         id: 2,
-        text: '오늘의 뉴스 읽기',
+        text: 'sample 2',
         done: true,
     },
-    { id: 3, text: '샌드위치 사 먹기', done: false },
-    { id: 4, text: '리액트 공부하기', done: false },
 ];
 
 export function TodoProvider({ children }) {
     const [state, dispatch] = useReducer(todoReducer, initialTodos);
-    const [nextId, setNextID] = useState(5);
+    const [nextId, setNextID] = useState(3);
     const initial = useEffect(() => {
         let data;
         async function getItems() {

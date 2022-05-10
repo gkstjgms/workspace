@@ -1,19 +1,20 @@
 import axios from "axios";
 
-export async function GetItems() {
+export async function AddItems(todo) {
   try {
-    const response = await axios.get("/", {});
-    return response.data;
+    return await axios.post("/", {
+      text: todo.text,
+    });
   } catch (err) {
     console.log(err);
   }
 }
 
-export async function AddItems(todo) {
+export async function GetItems() {
   try {
-    return await axios.post("/", {
-      todo: todo.todo,
-    });
+    const response = await axios.get("/", {});
+    console.log(response.data);
+    return response.data;
   } catch (err) {
     console.log(err);
   }

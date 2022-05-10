@@ -14,6 +14,7 @@ const TodoNextIdContext = createContext(null);
 function todoReducer(state, action) {
   switch (action.type) {
     case "CREATE":
+      apiCaller.AddItems(action.todo);
       return state.concat(action.todo);
     case "TOGGLE":
       return state.map((todo) =>
@@ -43,20 +44,22 @@ const initialTodos = [
 
 export function TodoProvider({ children }) {
   const [state, dispatch] = useReducer(todoReducer, initialTodos);
-  const [nextId, setNextID] = useState(5);
-  const mysqlTodos = useEffect(() => {
+  const [nextId, setNextID] = useState(3);
+  /*
+  const initial = useEffect(() => {
     let data;
     async function getItems() {
       data = await apiCaller.GetItems();
       let nextID = data[data.length - 1].id;
       setNextID(nextID + 1);
       dispatch({
-        type: "REPLACE",
+        type: 'REPLACE',
         array: data,
       });
     }
     getItems();
   }, []);
+  */
 
   return (
     <TodoStateContext.Provider value={state}>

@@ -7,8 +7,8 @@ export class myTodoList {
   @Generated("increment")
   id: number;
 
-  @Column("varchar", { name: "todo", nullable: false })
-  todo: string;
+  @Column("varchar", { name: "text", nullable: false })
+  text: string;
 
   @Column("tinyint", { name: "done", nullable: true })
   done: boolean;

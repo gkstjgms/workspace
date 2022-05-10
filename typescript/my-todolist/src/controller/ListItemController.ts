@@ -4,7 +4,7 @@ import { myTodoList } from "../entity/TodoList";
 
 interface iTodoList {
   id: number;
-  todo: string;
+  text: string;
   done?: boolean;
 }
 
@@ -14,9 +14,9 @@ export class ListItemController {
   async addItem(request: Request, response: Response, next: NextFunction) {
     const param: iTodoList = request.body;
     try {
-      if (param.todo) {
+      if (param.text) {
         let obj = this.myTodoListRepos.create({
-          todo: param.todo,
+          text: param.text,
           done: param.done ? param.done : false,
         });
         return await this.myTodoListRepos.save(obj);
