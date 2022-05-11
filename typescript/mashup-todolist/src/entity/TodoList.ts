@@ -1,7 +1,7 @@
 import { Column, Entity, Index, Generated } from 'typeorm';
 
 @Index('No_UNIQUE', ['id'], { unique: true })
-@Entity('todoList', { schema: 'todoList' })
+@Entity('myTodoList', { schema: 'myTodoList' })
 export class TodoList {
     @Column({ primary: true, type: 'int', name: 'id' })
     @Generated('increment')

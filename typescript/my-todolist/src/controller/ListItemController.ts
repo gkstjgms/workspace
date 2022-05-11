@@ -1,6 +1,6 @@
 import { getConnection, getRepository, getManager } from "typeorm";
 import { NextFunction, Request, Response } from "express";
-import { myTodoList } from "../entity/TodoList";
+import { TodoList } from "../entity/TodoList";
 
 interface iTodoList {
   id: number;
@@ -9,7 +9,7 @@ interface iTodoList {
 }
 
 export class ListItemController {
-  private myTodoListRepos = getRepository(myTodoList);
+  private myTodoListRepos = getRepository(TodoList);
 
   async addItem(request: Request, response: Response, next: NextFunction) {
     const param: iTodoList = request.body;

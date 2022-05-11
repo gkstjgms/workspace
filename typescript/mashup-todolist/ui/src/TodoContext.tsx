@@ -12,9 +12,9 @@ function todoReducer(state, action) {
             return state.concat(action.todo);
         }
         case 'TOGGLE': {
-            let id = state.filter((todo) => todo.id === action.id);
+            let id = state.filter(todo => todo.id === action.id);
             apiCaller.ToggleItems(id[0]);
-            return state.map((todo) => (todo.id === action.id ? { ...todo, done: todo.done === 1 ? 0 : 1 } : todo));
+            return state.map(todo => (todo.id === action.id ? { ...todo, done: todo.done === 1 ? 0 : 1 } : todo));
         }
         case 'REMOVE': {
             let id = state.filter((todo) => todo.id === action.id);

@@ -2,7 +2,7 @@ import axios from "axios";
 
 export async function AddItems(todo) {
   try {
-    return await axios.post("/", {
+    return await axios.post("/addItem", {
       text: todo.text,
     });
   } catch (err) {
@@ -12,8 +12,7 @@ export async function AddItems(todo) {
 
 export async function GetItems() {
   try {
-    const response = await axios.get("/", {});
-    console.log(response.data);
+    const response = await axios.get("/getItem", {});
     return response.data;
   } catch (err) {
     console.log(err);

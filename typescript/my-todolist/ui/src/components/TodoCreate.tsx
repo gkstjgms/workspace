@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
-import { MdAdd } from 'react-icons/md';
-import { useTodoDispatch, useTodoNextId } from '../TodoContext';
+import React, { useState } from "react";
+import styled, { css } from "styled-components";
+import { MdAdd } from "react-icons/md";
+import { useTodoDispatch, useTodoNextId } from "../TodoContext";
 
 interface iCircleButton {
   open: boolean;
@@ -37,7 +37,7 @@ const CircleButton = styled.button<iCircleButton>`
   justify-content: center;
 
   transition: 0.125s all ease-in;
-  ${props =>
+  ${(props) =>
     props.open &&
     css`
       background: #ff6b6b;
@@ -82,24 +82,24 @@ const Input = styled.input`
 
 function TodoCreate() {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
   const dispatch = useTodoDispatch();
-  const nextId = useTodoNextId();
+  const nextId: any = useTodoNextId();
 
   const onToggle = () => setOpen(!open);
-  const onChange = e => setValue(e.target.value);
-  const onSubmit = e => {
+  const onChange = (e) => setValue(e.target.value);
+  const onSubmit = (e) => {
     e.preventDefault();
     dispatch({
-      type: 'CREATE',
+      type: "CREATE",
       todo: {
         id: nextId ? nextId : nextId.current,
         text: value,
-        done: false
-      }
+        done: false,
+      },
     });
     setOpen(false);
-    setValue('');
+    setValue("");
   };
 
   return (

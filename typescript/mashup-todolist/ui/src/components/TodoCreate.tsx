@@ -87,8 +87,8 @@ function TodoCreate() {
     const nextId: any = useTodoNextId();
 
     const onToggle = () => setOpen(!open);
-    const onChange = (e: any) => setValue(e.target.value);
-    const onSubmit = (e: any) => {
+    const onChange = e => setValue(e.target.value);
+    const onSubmit = e => {
         e.preventDefault();
         dispatch({
             type: 'CREATE',

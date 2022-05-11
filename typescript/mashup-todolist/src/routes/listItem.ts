@@ -2,16 +2,16 @@ import { ListItemController } from '../controller/ListItemController';
 
 export const ListItem = [
     {
-        method: 'get',
-        route: '/getItem',
-        controller: ListItemController,
-        action: 'getItem',
-    },
-    {
         method: 'post',
         route: '/addItem',
         controller: ListItemController,
         action: 'addItem',
+    },
+    {
+        method: 'get',
+        route: '/getItem',
+        controller: ListItemController,
+        action: 'getItem',
     },
     {
         method: 'put',

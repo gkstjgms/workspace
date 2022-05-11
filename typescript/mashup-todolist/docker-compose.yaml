@@ -6,6 +6,6 @@ services:
       - "5000:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=tj3gms4!
-      - MYSQL_DATABASE=todoList
+      - MYSQL_DATABASE=myTodoList
       - TZ=Asia/Seoul
     restart: always

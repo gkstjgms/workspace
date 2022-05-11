@@ -2,7 +2,7 @@ import { Column, Entity, Index, Generated } from "typeorm";
 
 @Index("No_UNIQUE", ["id"], { unique: true })
 @Entity("myTodoList", { schema: "myTodoList" })
-export class myTodoList {
+export class TodoList {
   @Column({ primary: true, type: "int", name: "id" })
   @Generated("increment")
   id: number;
