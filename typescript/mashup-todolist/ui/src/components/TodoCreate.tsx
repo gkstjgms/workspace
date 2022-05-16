@@ -8,12 +8,12 @@ interface iCircleButton {
 }
 
 const CircleButton = styled.button<iCircleButton>`
-    background: #38d9a9;
+    background: #3866d9;
     &:hover {
-        background: #63e6be;
+        background: #6382e6; 
     }
     &:active {
-        background: #20c997;
+        background: #2050c9; 
     }
 
     z-index: 5;

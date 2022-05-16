@@ -15,6 +15,8 @@ function todoReducer(state, action) {
             let id = state.filter(todo => todo.id === action.id);
             apiCaller.ToggleItems(id[0]);
             return state.map(todo => (todo.id === action.id ? { ...todo, done: todo.done === 1 ? 0 : 1 } : todo));
+            // 기본: return state.map(todo => todo.id === action.id ? { ...todo, done: !todo.done } : todo);
+            // 원래: return state.map(todo => (todo.id === action.id ? { ...todo, done: todo.done === 1 ? 0 : 1 } : todo));
         }
         case 'REMOVE': {
             let id = state.filter((todo) => todo.id === action.id);
@@ -31,12 +33,12 @@ function todoReducer(state, action) {
 const initialTodos = [
     {
         id: 1,
-        text: 'sample 1',
+        text: 'sample',
         done: false,
     },
     {
         id: 2,
-        text: 'sample 2',
+        text: 'page',
         done: true,
     },
 ];

@@ -1,11 +1,18 @@
 import { getConnection, getRepository, getManager } from 'typeorm';
 import { NextFunction, Request, Response } from 'express';
 import { TodoList } from '../entity/TodoList';
+import { Login } from '../entity/Login';
 
 interface iTodoList {
     id: number;
     text: string;
     done?: boolean;
+}
+
+interface iLogin {
+    id: number;
+    userid: string;
+    userpw: string;
 }
 
 export class ListItemController {
@@ -54,6 +61,23 @@ export class ListItemController {
         try {
             let item = await this.todoListRepos.delete({ id: param.id });
             return item;
+        } catch (ex) {
+            return false;
+        }
+    }
+}
+
+export class ListLoginController {
+    private LoginRepos = getRepository(Login);
+
+    async addUser(request: Request, response: Response, next: NextFunction) {
+        const param: iLogin = request.body;
+        try {
+            let user = this.LoginRepos.create({
+                userid: param.userid,
+                userpw: param.userpw
+            });
+            return await this.LoginRepos.save(user);
         } catch (ex) {
             return false;
         }

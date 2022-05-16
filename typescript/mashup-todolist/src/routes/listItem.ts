@@ -1,4 +1,4 @@
-import { ListItemController } from '../controller/ListItemController';
+import { ListItemController, ListLoginController } from '../controller/ListItemController';
 
 export const ListItem = [
     {
@@ -24,5 +24,14 @@ export const ListItem = [
         route: '/deleteItem',
         controller: ListItemController,
         action: 'deleteItem',
+    },
+];
+
+export const ListLogin = [
+    {
+        method: 'post',
+        route: '/addUser',
+        controller: ListLoginController,
+        action: 'addUser',
     },
 ];

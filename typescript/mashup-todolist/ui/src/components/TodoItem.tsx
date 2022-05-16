@@ -45,8 +45,8 @@ const CheckCircle = styled.div`
   ${(props: ICheckCircle) =>
     props.done &&
     css`
-      border: 1px solid #38d9a9;
-      color: #38d9a9;
+      border: 1px solid #3866d9;
+      color: #3866d9;
     `}
 `;
 
