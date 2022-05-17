@@ -39,3 +39,11 @@ export async function DeleteItems(todo) {
         console.log(err);
     }
 }
+
+export function Login(user) {
+    const request = axios.post('/addUser', user).then((response) => response.data);
+    return {
+        type: 'SEARCH',
+        payload: request
+    };
+}

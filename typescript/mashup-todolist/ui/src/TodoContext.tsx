@@ -11,10 +11,12 @@ function todoReducer(state, action) {
             apiCaller.AddItems(action.todo);
             return state.concat(action.todo);
         }
+        case 'REPLACE':
+            return action.array;
         case 'TOGGLE': {
-            let id = state.filter(todo => todo.id === action.id);
+            let id = state.filter((todo) => todo.id === action.id);
             apiCaller.ToggleItems(id[0]);
-            return state.map(todo => (todo.id === action.id ? { ...todo, done: todo.done === 1 ? 0 : 1 } : todo));
+            return state.map((todo) => (todo.id === action.id ? { ...todo, done: todo.done === 1 ? 0 : 1 } : todo));
             // 기본: return state.map(todo => todo.id === action.id ? { ...todo, done: !todo.done } : todo);
             // 원래: return state.map(todo => (todo.id === action.id ? { ...todo, done: todo.done === 1 ? 0 : 1 } : todo));
         }
@@ -23,8 +25,6 @@ function todoReducer(state, action) {
             apiCaller.DeleteItems(id[0]);
             return state.filter((todo) => todo.id !== action.id);
         }
-        case 'REPLACE':
-            return action.array;
         default:
             return state;
     }
@@ -46,19 +46,18 @@ const initialTodos = [
 export function TodoProvider({ children }) {
     const [state, dispatch] = useReducer(todoReducer, initialTodos);
     const [nextId, setNextID] = useState(3);
-    const initial = useEffect(() => {
-        let data;
-        async function getItems() {
-            data = await apiCaller.GetItems();
-            let nextID = data[data.length - 1].id;
-            setNextID(nextID + 1);
-            dispatch({
-                type: 'REPLACE',
-                array: data,
-            });
-        }
-        getItems();
-    }, []);
+
+    let data;
+    async function getItems() {
+        data = await apiCaller.GetItems();
+        let nextID = data[data.length - 1].id;
+        setNextID(nextID + 1);
+        dispatch({
+            type: 'REPLACE',
+            array: data,
+        });
+    }
+    getItems();
 
     return (
         <TodoStateContext.Provider value={state}>

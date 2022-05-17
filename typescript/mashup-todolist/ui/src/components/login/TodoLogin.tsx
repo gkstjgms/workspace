@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { IoMdLogIn } from 'react-icons/io'
+import { IoMdLogIn } from 'react-icons/io';
+
+import * as apiCaller from '../../util/apiCaller';
+import { Login } from '../../util/apiCaller';
 
 const TodoHeadBlock = styled.div`
     h1 {
@@ -50,11 +55,11 @@ const LoginButton = styled.button`
 
 const InsertFormPositioner = styled.div`
     h2 {
-      margin: 0;
-      padding-left: 45px;
-      padding-right: 32px;
-      font-size: 30px;
-      color: #343a40;
+        margin: 0;
+        padding-left: 45px;
+        padding-right: 32px;
+        font-size: 30px;
+        color: #343a40;
     }
     width: 100%;
     bottom: 0;
@@ -92,7 +97,38 @@ const Input = styled.input`
     box-sizing: border-box;
 `;
 
+function todoReducer(state = {}, action) {
+    switch (action.type) {
+        case 'SEARCH':
+            return { ...state, login: action.payload };
+        default:
+            return state;
+    }
+}
+
 function TodoLogin() {
+    const dispatch:any = useDispatch();
+    const navigate = useNavigate();
+
+    const [id, setId] = useState('');
+    const [pw, setPw] = useState('');
+
+    const onLogin = (e) => {
+        e.preventDefault();
+        let user = {
+            userid: id,
+            userpw: pw,
+        };
+
+        dispatch(Login(user)).then((response) => {
+            if (response.payload.login) {
+                navigate('/');
+            } else {
+                alert('ERROR!');
+            }
+        });
+    };
+
     return (
         <>
             <TodoHeadBlock>
@@ -101,14 +137,14 @@ function TodoLogin() {
             <InsertFormPositioner>
                 <h2>Id</h2>
                 <InsertId>
-                    <Input placeholder="Id"></Input>
+                    <Input placeholder="Id" onChange={(e) => setId(e.target.value)}></Input>
                 </InsertId>
                 <h2>Password</h2>
                 <InsertPw>
-                    <Input placeholder="Password"></Input>
+                    <Input placeholder="Password" onChange={(e) => setPw(e.target.value)}></Input>
                 </InsertPw>
             </InsertFormPositioner>
-            <LoginButton>
+            <LoginButton onClick={onLogin}>
                 <IoMdLogIn />
             </LoginButton>
         </>

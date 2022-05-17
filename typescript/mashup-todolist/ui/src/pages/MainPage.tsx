@@ -4,9 +4,7 @@ import TodoHead from '../components/TodoHead';
 import TodoList from '../components/TodoList';
 import TodoCreate from '../components/TodoCreate';
 
-import { RouteComponentProps } from 'react-router-dom';
-
-const MainPage = (): JSX.Element => {
+const MainPage = () => {
     return (
         <TodoTemplate>
             <TodoHead />
