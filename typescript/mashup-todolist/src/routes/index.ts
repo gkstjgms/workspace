@@ -2,7 +2,7 @@ import { ListItem, ListLogin } from './listItem';
 
 const Routes = [
     ...ListItem,
-    ...ListLogin
+    ...ListLogin,
 ];
 
 export default Routes;

@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
     background: #e9ecef
   }
 `;
-const App = ({ Component, pageProps }: any) => {
+const App = () => {
     return (
         <BrowserRouter>
             <TodoProvider>

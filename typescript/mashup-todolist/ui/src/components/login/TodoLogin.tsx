@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import { IoMdLogIn } from 'react-icons/io';
 
 import * as apiCaller from '../../util/apiCaller';
-import { Login } from '../../util/apiCaller';
+import { iAuthInfo } from '../../redux/auth';
+import { authLogined } from '../../redux/auth/index';
 
 const TodoHeadBlock = styled.div`
     h1 {
@@ -97,36 +98,33 @@ const Input = styled.input`
     box-sizing: border-box;
 `;
 
-function todoReducer(state = {}, action) {
-    switch (action.type) {
-        case 'SEARCH':
-            return { ...state, login: action.payload };
-        default:
-            return state;
-    }
-}
-
 function TodoLogin() {
-    const dispatch:any = useDispatch();
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
 
-    const onLogin = (e) => {
+    const onLogin = async (e) => {
         e.preventDefault();
-        let user = {
-            userid: id,
-            userpw: pw,
-        };
+        try {
+            const res = await apiCaller.Login(id, pw);
+            console.log(res.data.userid, res.data.userpw);
+            console.log(id, pw);
+            const authInfo: iAuthInfo = {
+                userid: res.data.userid,
+                userpw: res.data.userpw,
+            };
+            dispatch(authLogined(authInfo));
 
-        dispatch(Login(user)).then((response) => {
-            if (response.payload.login) {
-                navigate('/');
+            if (id === res.data.userid && pw === res.data.userpw) {
+                navigate('/todo');
             } else {
-                alert('ERROR!');
+                alert('Please check Id or Password again.');
             }
-        });
+        } catch (ex) {
+            alert('Failed.');
+        }
     };
 
     return (

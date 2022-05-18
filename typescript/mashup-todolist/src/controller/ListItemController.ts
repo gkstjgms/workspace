@@ -1,7 +1,8 @@
-import { getConnection, getRepository, getManager } from 'typeorm';
+import { getConnection, getRepository, getManager, Connection } from 'typeorm';
 import { NextFunction, Request, Response } from 'express';
 import { TodoList } from '../entity/TodoList';
 import { Login } from '../entity/Login';
+import { userInfo } from 'os';
 
 interface iTodoList {
     id: number;
@@ -68,16 +69,45 @@ export class ListItemController {
 }
 
 export class ListLoginController {
-    private LoginRepos = getRepository(Login);
+    private loginRepos = getRepository(Login);
+
+    async findUser(request: Request, response: Response, next: NextFunction) {
+        const param: iLogin = request.body;
+        try {
+            const userinfo = await this.loginRepos.findOne({
+                where: {
+                    userid: param.userid,
+                    userpw: param.userpw
+                }
+            });
+            if (userinfo) {
+                return userinfo;
+            } else {
+                return false;
+            }
+        } catch (ex) {
+            return false;
+        }
+    }
 
     async addUser(request: Request, response: Response, next: NextFunction) {
         const param: iLogin = request.body;
         try {
-            let user = this.LoginRepos.create({
+            let obj = this.loginRepos.create({
                 userid: param.userid,
-                userpw: param.userpw
+                userpw: param.userpw,
             });
-            return await this.LoginRepos.save(user);
+            return await this.loginRepos.save(obj);
+        } catch (ex) {
+            return false;
+        }
+    }
+
+    async deleteUser(request: Request, response: Response, next: NextFunction) {
+        const param: iLogin = request.body;
+        try {
+            let user = await this.loginRepos.delete({ id: param.id });
+            return user;
         } catch (ex) {
             return false;
         }

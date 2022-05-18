@@ -40,10 +40,13 @@ export async function DeleteItems(todo) {
     }
 }
 
-export function Login(user) {
-    const request = axios.post('/addUser', user).then((response) => response.data);
-    return {
-        type: 'SEARCH',
-        payload: request
-    };
+export async function Login(userid: string, userpw: string) {
+    const response = await axios.post(
+        '/findUser',
+        {
+            userid: userid,
+            userpw: userpw,
+        },
+    );
+    return response;
 }

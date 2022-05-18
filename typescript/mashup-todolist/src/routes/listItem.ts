@@ -30,8 +30,20 @@ export const ListItem = [
 export const ListLogin = [
     {
         method: 'post',
+        route: '/findUser',
+        controller: ListLoginController,
+        action: 'findUser',
+    },
+    {
+        method: 'post',
         route: '/addUser',
         controller: ListLoginController,
         action: 'addUser',
+    },
+    {
+        method: 'delete',
+        route: '/deleteUser',
+        controller: ListLoginController,
+        action: 'deleteUser',
     },
 ];

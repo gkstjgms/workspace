@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useContext, useEffect, useState } from 'react';
+import React, { createContext, useReducer, useContext, useState } from 'react';
 import * as apiCaller from './util/apiCaller';
 
 const TodoStateContext = createContext(null);

@@ -7,8 +7,8 @@ import MainPage from './MainPage';
 const Pages = () => {
     return (
         <Routes>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/" element={<MainPage />} />
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/todo" element={<MainPage />} />
         </Routes>
     );
 };
