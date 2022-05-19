@@ -1,12 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useTodoState } from '../TodoContext';
+import { useSelector } from 'react-redux';
+import { RootState } from '../redux/store';
 
 const TodoHeadBlock = styled.div`
   h1 {
     margin: 0;
     font-size: 36px;
     color: #343a40;
+  }
+  p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: bold;
+    color: #868e96;
   }
   .day {
     margin-top: 4px;
@@ -36,12 +44,15 @@ function TodoHead() {
     day: 'numeric'
   });
 
+  const users = useSelector((state: RootState) => state.user);
+
   const dayName = today.toLocaleString('ko-KR', { weekday: 'long' });
   const todos = useTodoState();
   const undoneTasks = todos.filter(todo => !todo.done);
 
   return (
     <TodoHeadBlock>
+      <p>{users.userInfo.userid}</p>
       <h1>{dateString}</h1>
       <div className="day">{dayName}</div>
       <TasksLeft>할 일 {undoneTasks.length}개 남음</TasksLeft>

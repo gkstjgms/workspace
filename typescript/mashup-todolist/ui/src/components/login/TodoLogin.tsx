@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useNavigate, useRoutes } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { IoMdLogIn } from 'react-icons/io';
 
 import * as apiCaller from '../../util/apiCaller';
-import { iAuthInfo } from '../../redux/auth';
-import { authLogined } from '../../redux/auth/index';
+import { iUserInfo } from '../../redux/features/loginSlice';
+import { userLogined } from '../../redux/features/loginSlice';
+import { RootState } from '../../redux/store';
 
 const TodoHeadBlock = styled.div`
     h1 {
@@ -99,25 +100,25 @@ const Input = styled.input`
 `;
 
 function TodoLogin() {
-    const dispatch = useDispatch();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const users = useSelector((state: RootState) => state.user);
 
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
 
-    const onLogin = async (e) => {
-        e.preventDefault();
+    const onLogin = async () => {
+        console.log('login', users);
         try {
             const res = await apiCaller.Login(id, pw);
-            console.log(res.data.userid, res.data.userpw);
-            console.log(id, pw);
-            const authInfo: iAuthInfo = {
+            const userInfo: iUserInfo = {
+                id: res.data.id,
                 userid: res.data.userid,
                 userpw: res.data.userpw,
             };
-            dispatch(authLogined(authInfo));
-
             if (id === res.data.userid && pw === res.data.userpw) {
+                dispatch(userLogined(userInfo));
                 navigate('/todo');
             } else {
                 alert('Please check Id or Password again.');

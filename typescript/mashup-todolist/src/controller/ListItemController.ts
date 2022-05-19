@@ -2,7 +2,6 @@ import { getConnection, getRepository, getManager, Connection } from 'typeorm';
 import { NextFunction, Request, Response } from 'express';
 import { TodoList } from '../entity/TodoList';
 import { Login } from '../entity/Login';
-import { userInfo } from 'os';
 
 interface iTodoList {
     id: number;
