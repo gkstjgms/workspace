@@ -112,17 +112,15 @@ function TodoLogin() {
         console.log('login', users);
         try {
             const res = await apiCaller.Login(id, pw);
+            if (!res.data) return alert('Please check Id or Password again.');
             const userInfo: iUserInfo = {
                 id: res.data.id,
                 userid: res.data.userid,
                 userpw: res.data.userpw,
             };
-            if (id === res.data.userid && pw === res.data.userpw) {
-                dispatch(userLogined(userInfo));
-                navigate('/todo');
-            } else {
-                alert('Please check Id or Password again.');
-            }
+
+            dispatch(userLogined(userInfo));
+            navigate('/todo');
         } catch (ex) {
             alert('Failed.');
         }
@@ -140,7 +138,7 @@ function TodoLogin() {
                 </InsertId>
                 <h2>Password</h2>
                 <InsertPw>
-                    <Input placeholder="Password" onChange={(e) => setPw(e.target.value)}></Input>
+                    <Input type="password" placeholder="Password" onChange={(e) => setPw(e.target.value)}></Input>
                 </InsertPw>
             </InsertFormPositioner>
             <LoginButton onClick={onLogin}>

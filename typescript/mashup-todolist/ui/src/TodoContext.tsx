@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useContext, useState } from 'react';
+import React, { createContext, useReducer, useContext, useState, useEffect } from 'react';
 import * as apiCaller from './util/apiCaller';
 
 const TodoStateContext = createContext(null);
@@ -47,7 +47,12 @@ export function TodoProvider({ children }) {
     const [state, dispatch] = useReducer(todoReducer, initialTodos);
     const [nextId, setNextID] = useState(3);
 
+    useEffect(() => {
+        getItems();
+      }, []);
+
     let data;
+    
     async function getItems() {
         data = await apiCaller.GetItems();
         let nextID = data[data.length - 1].id;
@@ -57,7 +62,6 @@ export function TodoProvider({ children }) {
             array: data,
         });
     }
-    getItems();
 
     return (
         <TodoStateContext.Provider value={state}>

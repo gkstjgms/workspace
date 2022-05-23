@@ -29,6 +29,7 @@ export const loginSlice = createSlice({
         },
         userLogouted: (state, action: PayloadAction<iUserInfo>) => {
             state.isLogined = false;
+            state.userInfo = {};
         },
     },
 });
