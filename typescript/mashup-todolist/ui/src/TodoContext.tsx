@@ -16,7 +16,7 @@ function todoReducer(state, action) {
         case 'TOGGLE': {
             let id = state.filter((todo) => todo.id === action.id);
             apiCaller.ToggleItems(id[0]);
-            return state.map((todo) => (todo.id === action.id ? { ...todo, done: todo.done === 1 ? 0 : 1 } : todo));
+            return state.map((todo) => (todo.id === action.id ? { ...todo, done: !todo.done } : todo));
             // 기본: return state.map(todo => todo.id === action.id ? { ...todo, done: !todo.done } : todo);
             // 원래: return state.map(todo => (todo.id === action.id ? { ...todo, done: todo.done === 1 ? 0 : 1 } : todo));
         }
@@ -49,10 +49,10 @@ export function TodoProvider({ children }) {
 
     useEffect(() => {
         getItems();
-      }, []);
+    }, []);
 
     let data;
-    
+
     async function getItems() {
         data = await apiCaller.GetItems();
         let nextID = data[data.length - 1].id;
