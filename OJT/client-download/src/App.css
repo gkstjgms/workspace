@@ -1,0 +1,100 @@
+/* Navbar */
+
+nav {
+  background: rgb(47, 85, 151);
+}
+
+nav section {
+  width: 100%;
+
+  text-align: center;
+
+  display: grid;
+  place-content: center;
+}
+
+nav div a {
+  text-align: center;
+  text-decoration: none;
+  font-size: 40px;
+  font-weight: 700;
+  padding: 0.25rem 1.5rem;
+  border-radius: 20px 20px 0px 0px;
+  color: rgb(47, 85, 151) !important;
+  background: white;
+  height: 60px;
+  margin-top: 100px;
+  width: 100px;
+}
+
+nav a {
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 50px;
+  color: white;
+  margin-top: 150px;
+}
+
+nav div a:hover,
+nav div a:active {
+  background: rgb(200, 215, 250);
+}
+
+.navContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navLinks {
+  display: flex;
+}
+
+.navLinks a {
+  margin-left: 5px;
+}
+
+.logo {
+  width: 180px;
+  margin-top: 25px;
+  margin-left: 100px;
+}
+
+/* posts */
+
+.post-section {
+  padding: 1rem 3rem;
+  border: 1px solid rgb(177, 174, 174);
+  border-radius: 20px;
+  margin: 5rem 30rem 5rem 30rem;
+}
+
+.post-section .post-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-title h2 {
+  font-size: 50px;
+}
+
+.post-title .date {
+  color: gray;
+  text-align: right;
+  margin-top: 5rem;
+}
+
+.post-note {
+  padding: 1rem 3rem;
+  border: 1px solid rgb(177, 174, 174);
+  margin-bottom: 2rem;
+}
+
+.post-download {
+  color: rgb(47, 85, 151);
+  display: flex;
+}
+
+.post-download .icon {
+  margin: 1.2rem 1rem 0rem 0.5rem;
+}
