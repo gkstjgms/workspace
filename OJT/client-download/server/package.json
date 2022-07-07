@@ -1,0 +1,82 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Semi-TS T300 API- Server",
+  "main": "index.ts",
+  "scripts": {
+    "webpack:dev": "node node_modules/webpack/bin/webpack.js --watch --config ./config/webpack.dev.js",
+    "webpack:prod": "node node_modules/webpack/bin/webpack.js -p --config ./config/webpack.prod.js",
+    "clean": "rm -rf build/",
+    "start": "node ./build/bundle.js",
+    "start:pm2": "pm2 start ecosystem.config.js",
+    "stop:pm2": "pm2 stop Semi-TS-API-Server",
+    "delete": "pm2 delete Semi-TS-API-Server",
+    "save": "pm2 save",
+    "list": "pm2 list",
+    "test": "jest --detectOpenHandles --verbose true",
+    "monit": "pm2 monit",
+    "startup": "pm2 startup",
+    "unstartup": "pm2 unstartup"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@godaddy/terminus": "^4.9.0",
+    "@influxdata/influxdb-client": "^1.14.0",
+    "@types/express": "4.17.9",
+    "@types/node": "14.0.13",
+    "@types/socket.io": "^2.1.12",
+    "axios": "^0.21.1",
+    "bufferutil": "4.0.3",
+    "cookie-parser": "^1.4.5",
+    "cors": "2.8.5",
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "express-http-proxy": "1.6.2",
+    "http": "0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "path": "0.12.7",
+    "socket.io": "3.0.0",
+    "utf-8-validate": "5.0.4",
+    "winston": "3.3.3",
+    "winston-daily-rotate-file": "4.4.2",
+    "winston-redis": "3.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.4",
+    "cross-env": "^7.0.2",
+    "jest": "^26.1.0",
+    "pm2": "^4.5.6",
+    "socket.io-client": "^4.1.2",
+    "supertest": "^4.0.2",
+    "ts-jest": "^26.1.2",
+    "ts-loader": "7.0.5",
+    "typescript": "3.9.5",
+    "webpack": "4.43.0",
+    "webpack-cli": "3.3.12",
+    "webpack-dev-server": "3.11.0",
+    "webpack-merge": "4.2.2",
+    "webpack-node-externals": "1.7.2"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": "\\.test\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "globals": {
+      "ts-jest": {
+        "diagnostics": true
+      }
+    }
+  },
+  "engines": {
+    "node": ">=12.18.2",
+    "npm": ">=6.14.5"
+  }
+}
