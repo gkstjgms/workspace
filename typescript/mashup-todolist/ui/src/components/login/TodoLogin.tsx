@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { useNavigate, useRoutes } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { IoMdLogIn } from 'react-icons/io';
 
 import * as apiCaller from '../../util/apiCaller';
-import { iUserInfo } from '../../redux/features/loginSlice';
-import { userLogined } from '../../redux/features/loginSlice';
+import { iUserInfo, userLogined } from '../../redux/features/loginSlice';
 import { RootState } from '../../redux/store';
 
 const TodoHeadBlock = styled.div`
@@ -108,6 +107,12 @@ function TodoLogin() {
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
 
+    const onCheckEnter = (e) => {
+        if (e.key === 'Enter') {
+            onLogin();
+        }
+    };
+
     const onLogin = async () => {
         console.log('login', users);
         try {
@@ -141,7 +146,7 @@ function TodoLogin() {
                     <Input type="password" placeholder="Password" onChange={(e) => setPw(e.target.value)}></Input>
                 </InsertPw>
             </InsertFormPositioner>
-            <LoginButton onClick={onLogin}>
+            <LoginButton onClick={onLogin} onKeyPress={onCheckEnter}>
                 <IoMdLogIn />
             </LoginButton>
         </>

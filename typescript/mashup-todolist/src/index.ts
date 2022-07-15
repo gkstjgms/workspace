@@ -37,12 +37,9 @@ const run = async (options) => {
         app.use(express.json());
         app.use(express.urlencoded({ extended: false }));
         app.use(express.static('../ui/build'));
-        app.use(
-            morgan(`":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"`, {}),
-        );
+        app.use(morgan(`":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"`, {}));
 
-
-       // register express routes from defined application routes
+        // register express routes from defined application routes
         Routes.forEach((route) => {
             (app as any)[route.method](route.route, (req: Request, res: Response, next: Function) => {
                 const result = new (route.controller as any)()[route.action](req, res, next);
@@ -58,10 +55,9 @@ const run = async (options) => {
             });
         });
 
-       
         const server = app.listen(8002);
 
-        const onSignal = async () => {            
+        const onSignal = async () => {
             connection.forEach(async (c) => await c.close());
         };
 
