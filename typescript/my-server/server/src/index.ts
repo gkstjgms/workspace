@@ -6,7 +6,7 @@ import { Request, Response } from "express";
 import * as cors from "cors";
 import * as morgan from "morgan";
 import Routes from "../routes/todoItem";
-// import Entity from "./entity";
+import Entity from "../entity/entity";
 
 import { exit } from "process";
 import { createTerminus } from "@godaddy/terminus";
@@ -16,20 +16,16 @@ import "dotenv/config";
 const connectionOptions: ConnectionOptions[] = [];
 
 connectionOptions.push({
-  name: process.env.INTERNAL_NAME ? process.env.INTERNAL_NAME : "default",
   type: "mysql",
-  port: process.env.INTERNAL_PORT ? +process.env.INTERNAL_PORT : 5000,
-  synchronize: process.env.INTERNAL_SYNC === "1" ? true : false,
-  host: process.env.INTERNAL_HOST ? process.env.INTERNAL_HOST : "127.0.0.1",
   username: process.env.INTERNAL_AUTH ? process.env.INTERNAL_AUTH : "root",
   password: process.env.INTERNAL_PASSWORD
     ? process.env.INTERNAL_PASSWORD
     : "tj3gms4!",
   database: process.env.INTERNAL_DATABASE
     ? process.env.INTERNAL_DATABASE
-    : "myList",
+    : "myTodoList",
   logging: true,
-  // entities: Entity,
+  entities: Entity,
 });
 
 const run = async (options) => {
@@ -74,7 +70,8 @@ const run = async (options) => {
       );
     });
 
-    const server = app.listen(8000);
+    const port = 8000;
+    const server = app.listen(port);
 
     const onSignal = async () => {
       connection.forEach(async (c) => await c.close());
@@ -97,14 +94,10 @@ const run = async (options) => {
     });
 
     connectionOptions.forEach((op: MysqlConnectionOptions, index: number) => {
-      console.info(`Server ConnectionOptions ${index + 1}`);
-      console.info(`Typeorm Name: ${op.name}`);
+      console.info(`---Server ConnectionOptions---`);
       console.info(`Typeorm type: ${op.type}`);
-      console.info(`Typeorm databaseName: ${op.name}`);
-      console.info(`Typeorm databaseHost: ${op.host}`);
-      console.info(`Typeorm databaseHost: ${op.port}`);
     });
-    console.info("My server has started on port 8000");
+    console.info(`My server has started on port ${port}`);
   } catch (ex) {
     console.error(ex.message);
     exit(1);

@@ -9,7 +9,6 @@
     "webpack:dev": "webpack --watch --config ./config/webpack.dev.js",
     "webpack:prod": "webpack --config ./config/webpack.prod.js"
   },
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "@godaddy/terminus": "^4.9.0",
