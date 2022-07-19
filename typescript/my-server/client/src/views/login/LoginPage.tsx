@@ -1,12 +1,12 @@
 import React from "react";
-import TodoLoginTemplate from "../../components/login/TodoLoginTemplate";
-import TodoLogin from "../../components/login/TodoLogin";
+import "./login.scss";
+import TodoLogin from "../../layout/TodoLogin";
 
 function LoginPage() {
   return (
-    <TodoLoginTemplate>
+    <div className="login-template">
       <TodoLogin />
-    </TodoLoginTemplate>
+    </div>
   );
 }
 
