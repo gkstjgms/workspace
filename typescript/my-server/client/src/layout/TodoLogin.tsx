@@ -17,7 +17,7 @@ function TodoLogin() {
             className="login-input"
             placeholder="Id"
             onChange={(e) => setId(e.target.value)}
-          ></input>
+          />
         </form>
         <h2>Password</h2>
         <form className="insert-pw">
@@ -26,7 +26,7 @@ function TodoLogin() {
             type="password"
             placeholder="Password"
             onChange={(e) => setPw(e.target.value)}
-          ></input>
+          />
         </form>
       </div>
       <button className="login-button">
